@@ -1,0 +1,51 @@
+.navbar {
+    background-color: #CCD1D1;
+}
+
+.navbar-toggler-icon {
+    color: black;
+}
+
+.navbar-brand > .logo {
+    width: 60px;
+}
+
+.nav-link {
+    color: #3A3A3A;
+}
+.inven {
+    color: black;
+}
+
+.bg {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imgs/bg.jpg);
+}
+
+.secondbg {
+    background-color: #CCD1D1;
+    height: 100%;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #FFFF00 ;
+}
+
+.btnAdd {
+    display: flex;
+    margin: auto;
+}
+
+.btnUpdate {
+    display: flex;
+    margin: auto;
+}
+
+
+
+.dropdown-toggle {
+    cursor: pointer;
+}
