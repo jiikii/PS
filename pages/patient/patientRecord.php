@@ -33,25 +33,23 @@ if (!isset($_SESSION['user_id'])) {
             </div>
             <div class="list-group list-group-flush my-3">
                 <a href="PatientDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-gauge me-2"></i>Dashboard
+                    <i class="fab fa-hire-a-helper me-2"></i>Dashboard
                 </a>
                 <a href="PatientAppointment.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-house me-2"></i>Book Appointment
+                    <i class="fas fa-table-list me-2"></i>Book Appointment
                 </a>
                 <a href="patientRecord.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-table-list me-2"></i>Appointment Record
+                    <i class="fas fa-bookmark me-2"></i>Appointment Record
                 </a>
                 <a href="patientCinfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-paw me-2"></i>Councilor's Info
+                    <i class="fas fa-info-circle me-2"></i>Councilor's Info
                 </a>
                 <a href="patientChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-users me-2"></i>Chat Consultation
+                    <i class="fas fa-comments me-2"></i>Chat Consultation
                 </a>
                 <a href="patientMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-users me-2"></i>Medical Info
+                    <i class="fas fa-book-open me-2"></i>Medical Info
                 </a>
-               
-
             </div>
         </div>
 
@@ -142,7 +140,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </div>
 
-    
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>

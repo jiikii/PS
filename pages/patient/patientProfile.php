@@ -98,7 +98,7 @@ if (!isset($_SESSION['user_id'])) {
                       <br>
                       <p class="text-secondary mb-1">Patient</p>
                       <p class="text-muted font-size-sm">Cordova, Cebu City</p>
-                      <div class="text-center"><a class="btn btn-primary" href="">Edit Picture</a></div>
+                      <div class="text-center"><a class="btn btn-primary"><input type="file" name="file"/></a></div>
                      
                     </div>
                   </div>
