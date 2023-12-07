@@ -22,32 +22,34 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-    <div id="patient-user">
-        <div class="d-flex" id="wrapper">
-            <div class="background" id="sidebar-wrapper">
-                <div class="sidebar-heading text-center py-4 secondary-text fs-4 fw-bold text-uppercase border-bottom">
-                    <i class="fas fa-hands-helping"></i>M.H COMPANION
-                </div>
-                <div class="list-group list-group-flush my-3">
-                    <a href="PatientDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fas fa-gauge me-2"></i>Dashboard
-                    </a>
-                    <a href="PatientAppointment.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fas fa-house me-2"></i>Book Appointment
-                    </a>
-                    <a href="patientRecord.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fas fa-table-list me-2"></i>Appointment Record
-                    </a>
-                    <a href="patientCinfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fas fa-paw me-2"></i>Councilor's Info
-                    </a>
-                    <a href="patientChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fas fa-users me-2"></i>Chat Consultation
-                    </a>
-                    <a href="patientMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fas fa-users me-2"></i>Medical Info
-                    </a>
-                </div>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- sidebar starts -->
+
+        <div class="background" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 secondary-text fs-4 fw-bold text-uppercase border-bottom">
+                <i class="fas fa-hands-helping"></i>M.H COMPANION
+            </div>
+            <div class="list-group list-group-flush my-3">
+                <a href="PatientDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fab fa-hire-a-helper me-2"></i>Dashboard
+                </a>
+                <a href="PatientAppointment.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-table-list me-2"></i>Book Appointment
+                </a>
+                <a href="patientRecord.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-bookmark me-2"></i>Appointment Record
+                </a>
+                <a href="patientCinfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-info-circle me-2"></i>Councilor's Info
+                </a>
+                <a href="patientChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-comments me-2"></i>Chat Consultation
+                </a>
+                <a href="patientMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-book-open me-2"></i>Medical Info
+                </a>
             </div>
             <div id="page-content-wrapper">
                 <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
