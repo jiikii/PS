@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2023 at 02:36 AM
+-- Generation Time: Dec 07, 2023 at 02:21 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,15 +29,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `appointment` (
   `apptid` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
   `name` varchar(125) NOT NULL,
-  `dateappt` date NOT NULL,
-  `timeappt` datetime NOT NULL,
+  `dateappt` text NOT NULL,
+  `timeappt` text NOT NULL,
   `reason` text NOT NULL,
-  `type` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
+  `councilor` varchar(125) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT '1 = Pending\r\n2 = Approved\r\n3 = Decline\r\n5 = Cancel',
+  `type` varchar(125) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`apptid`, `patient_id`, `name`, `dateappt`, `timeappt`, `reason`, `councilor`, `status`, `type`, `created`, `updated`) VALUES
+(1, 1, 'George Alfeser', '2023-11-29', '18:18', 'This is just a sample!', 'Shiro', 5, 'Meet', '2023-11-28 10:17:52', '2023-11-28 10:17:52');
 
 -- --------------------------------------------------------
 
@@ -100,6 +109,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `email`, `password`, `role`, `status`, `islogged`, `created`, `updated`) VALUES
+(1, 'user1', 'user@user', '24c9e15e52afc47c225b757e7bee1f9d', 2, 1, 1, '2023-11-28 08:10:32', '2023-11-28 08:10:32');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -141,7 +157,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `apptid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `apptid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `chat`
@@ -165,7 +181,7 @@ ALTER TABLE `mentalinfo`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
