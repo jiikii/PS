@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2023 at 02:21 PM
+-- Generation Time: Dec 07, 2023 at 03:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -46,7 +46,7 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`apptid`, `patient_id`, `name`, `dateappt`, `timeappt`, `reason`, `councilor`, `status`, `type`, `created`, `updated`) VALUES
-(1, 1, 'George Alfeser', '2023-11-29', '18:18', 'This is just a sample!', 'Shiro', 5, 'Meet', '2023-11-28 10:17:52', '2023-11-28 10:17:52');
+(1, 3, 'humer godinez', '2023-12-07', '21:27', '123123', 'Shirop', 5, 'F2F', '2023-12-07 13:24:35', '2023-12-07 13:24:35');
 
 -- --------------------------------------------------------
 
@@ -85,10 +85,18 @@ CREATE TABLE `mentalinfo` (
   `mentid` int(11) NOT NULL,
   `img` text NOT NULL,
   `descript` text NOT NULL,
-  `status` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
   `datecreated` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `mentalinfo`
+--
+
+INSERT INTO `mentalinfo` (`mentid`, `img`, `descript`, `status`, `datecreated`, `updated`) VALUES
+(2, 'Screenshot 2023-06-28 224102.png', '1231231', 1, '2023-12-07 13:50:33', '2023-12-07 13:50:33'),
+(5, 'Screenshot 2023-06-28 224102.png', '12312312', 1, '2023-12-07 13:56:55', '2023-12-07 13:56:55');
 
 -- --------------------------------------------------------
 
@@ -113,7 +121,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `email`, `password`, `role`, `status`, `islogged`, `created`, `updated`) VALUES
-(1, 'user1', 'user@user', '24c9e15e52afc47c225b757e7bee1f9d', 2, 1, 1, '2023-11-28 08:10:32', '2023-11-28 08:10:32');
+(1, 'asd', 'user@gmail.com', '202cb962ac59075b964b07152d234b70', 1, 1, 1, '2023-12-07 10:02:06', '2023-12-07 10:02:06'),
+(3, 'test1', 'test@123', '202cb962ac59075b964b07152d234b70', 2, 0, 1, '2023-12-07 10:14:46', '2023-12-07 10:14:46');
 
 --
 -- Indexes for dumped tables
@@ -175,13 +184,13 @@ ALTER TABLE `contract`
 -- AUTO_INCREMENT for table `mentalinfo`
 --
 ALTER TABLE `mentalinfo`
-  MODIFY `mentid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `mentid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
