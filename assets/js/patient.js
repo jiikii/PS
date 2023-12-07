@@ -33,7 +33,7 @@ createApp({
                     } else if (r.data == 400) {
                         alert("Something is not Right");
                     } else {
-                        alert("Error");
+                        alert(r.data);
                     }
                 });
             }

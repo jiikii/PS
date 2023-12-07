@@ -80,7 +80,7 @@ if (!isset($_SESSION['user_id'])) {
           <div class="container">
             <div class="secondbg">
               <hr>
-              <div class="container bg-light">
+              <div class="container bg-light" style="height: 610px; overflow-y: scroll">
                 <div class="featuredTitle p-4">
                   <div class="text">
                     <h2 class="fw-bolder">Users & Councilors</h2>
@@ -90,15 +90,15 @@ if (!isset($_SESSION['user_id'])) {
                     <table class="table table-info">
                       <thead>
                         <th>ID</th>
-                        <th>USERNAME</th>
+                        <th>Username</th>
                         <th>EMAIL</th>
                         <th>Status</th>
-                        <th>ROLE</th>
-                        <th>ACTION</th>
+                        <th>Role</th>
+                        <th>Action</th>
                       </thead>
                       <tbody>
                         <tr v-for="(user,index) in users">
-                          <td>{{ index++ }}</td>
+                          <td>{{ 1 + index++ }}</td>
                           <td>{{ user.username }}</td>
                           <td>{{ user.email }}</td>
                           <td>{{ user.status == 1 ? 'Active' : 'Banned' }}</td>
@@ -129,15 +129,19 @@ if (!isset($_SESSION['user_id'])) {
                             <form @submit="updateStaff" novalidate class="userform">
                               <div class="col mb-2">
                                 <label>Username</label>
-                                <input type="text" v-model="username" class="form-control" name="username" placeholder="Username">
+                                <input type="text" v-model="username" class="form-control" readonly name="username" placeholder="Username">
                               </div>
                               <div class="col mb-2">
                                 <label>Email</label>
-                                <input type="text" v-model="email" class="form-control" name="email" placeholder="Email">
+                                <input type="text" v-model="email" class="form-control" readonly name="email" placeholder="Email">
                               </div>
                               <div class="col mb-2 ">
                                 <label>Role</label>
-                                <input type="text" v-model="role" class="form-control" name="role" placeholder="Role">
+                                <select v-model="role" class="form-control">
+                                  <option value="0">Select Role</option>
+                                  <option value="2">Patient</option>
+                                  <option value="3">Counsilor</option>
+                                </select>
                               </div>
                               <div class="mb-2">
                                 <button type="submit" class="btnAdd btn btn-sm btn-success" data-bs-dismiss="modal">update</button>
@@ -162,28 +166,25 @@ if (!isset($_SESSION['user_id'])) {
           </div>
         </section>
       </div>
+    </div>
 
-      </section>
+    </section>
 
-      <!-- JS -->
-      <script src="../assets/js/axios.js"></script>
-      <script src="../assets/js/vue.3.js"></script>
-      <script src="../assets/js/adminStaff.js"></script>
+    <!-- JS -->
+    <script src="../../assets/js/axios.js"></script>
+    <script src="../../assets/js/vue.3.js"></script>
+    <script src="../../assets/js/adminStaff.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
+    <script>
+      var el = document.getElementById("wrapper")
+      var toggleButton = document.getElementById("menu-toggle")
 
-
-
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-      <script>
-        var el = document.getElementById("wrapper")
-        var toggleButton = document.getElementById("menu-toggle")
-
-        toggleButton.onclick = function() {
-          el.classList.toggle("toggled")
-        }
-      </script>
+      toggleButton.onclick = function() {
+        el.classList.toggle("toggled")
+      }
+    </script>
 </body>
 
 </html>

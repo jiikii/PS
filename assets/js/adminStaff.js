@@ -6,11 +6,9 @@ createApp({
             username:'',
             email:'',
             password:'',
-            role:'',
+            role: '0',
             users:[],
             id:0
-            
-            
         }
     },
     methods:{
@@ -22,7 +20,7 @@ createApp({
             var data = new FormData(form);
             data.append("method","addStaff");
             
-            axios.post('../includes/adminStaff.php',data)
+            axios.post('../../includes/adminStaff.php',data)
             .then(function(r){
                 if(r.data == 0){
                     alert('User Added successfully ');
@@ -39,11 +37,11 @@ createApp({
             
         },
 
-        getStaff:function(){
+        getUsers:function(){
             var data = new FormData();
             const vue = this;
-            data.append('method','getStaff');
-            axios.post('../includes/adminStaff.php',data)
+            data.append('method','getUsers');
+            axios.post('../../includes/adminStaff.php',data)
             .then(function(r){
                 vue.users = [];
                 for(var v of r.data){
@@ -54,17 +52,17 @@ createApp({
                         role: v.role,
                         status: v.status,
                     })
-                    
                 }
             })
         },
+
         deleteStaff:function(id){
             if(confirm("Are you sure you want to delete this user?")){
                 var data = new FormData();
                 const vue = this;
                 data.append("method","deleteStaff");
                 data.append("id",id);
-                axios.post('../includes/adminStaff.php',data)
+                axios.post('../../includes/adminStaff.php',data)
                 .then(function(r){
                     vue.getStaff();
                 })
@@ -76,9 +74,8 @@ createApp({
             const vue = this;
             data.append('method','getStaffById');
             data.append("id",id);
-            axios.post('../includes/adminStaff.php',data)
+            axios.post('../../includes/adminStaff.php',data)
             .then(function(r){
-                console.log(r.data);
                 for(var v of r.data){
                     vue.username = v.username;
                     vue.email = v.email;
@@ -96,7 +93,7 @@ createApp({
             var data = new FormData(form);
             data.append("method","updateStaff");
             data.append("id",this.id);
-            axios.post('../includes/adminStaff.php',data)
+            axios.post('../../includes/adminStaff.php',data)
             .then(function(r){
                 if(r.data == 1){
                     alert('User successfully updated');
@@ -109,6 +106,6 @@ createApp({
         },
     },
     created:function(){
-        this.getStaff();
+        this.getUsers();
     }
 }).mount('#addStaff-app');

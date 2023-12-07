@@ -76,7 +76,7 @@ if (!isset($_SESSION['user_id'])) {
       </nav>
 
 
-      <div id="product-app">
+      <div id="page-wrapper">
         <section>
           <div class="container">
             <div class="secondbg">
@@ -93,7 +93,7 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="row">
                       <div class="col-12 col-lg-3">
                         <div class="col mt-2 mb-3">
-                          <input type="search" v-model="search" @input="searchUsers(search)" class="form-control" placeholder="Search...">
+                          <input type="search" v-model="searchForMentalInformation" class="form-control" placeholder="Search...">
                         </div>
                       </div>
                     </div>
@@ -106,14 +106,13 @@ if (!isset($_SESSION['user_id'])) {
                         <th>ACTION</th>
                       </thead>
                       <tbody>
-                        <tr v-for="user in users">
-                          <td>{{ mentid }}</td>
-                          <td>{{ img }}</td>
-                          <td>{{ descript }}</td>
-                          <td>{{ user.dateInserted }}</td>
+                        <tr v-for="me in searchForMental">
+                          <td>{{ me.mentid }}</td>
+                          <td><img :src="'../../imgs/' + me.img" alt="" width="70" class="rounded"></td>
+                          <td>{{ me.descript }}</td>
+                          <td>{{ me.datecreated }}</td>
                           <td>
-                            <button @click="getProductById(user.id)" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class="btn btn-sm btn-warning mx-1">Edit</button>
-                            <button @click="deleteProduct(user.id)" class="btn btn-sm btn-danger">delete</button>
+                            <button @click="deleteMentalInfo(me.mentid)" class="btn btn-sm btn-danger px-5">Delete</button>
                           </td>
                         </tr>
                       </tbody>
@@ -133,36 +132,19 @@ if (!isset($_SESSION['user_id'])) {
 
 
                           <div class="modal-body">
-                            <form @submit="addProduct" class="userform">
+                            <div>
                               <div class="mb-2">
-                                <label>Product Name</label>
-                                <input type="text" class="form-control" placeholder="Product name" name="pname" />
-                              </div>
-                              <div class="mb-2">
-                                <label>Quantity</label>
-                                <input type="text" class="form-control" placeholder="Quantity" name="quantity" />
-                              </div>
-                              <div class="mb-3">
-                                <label>Price</label>
-                                <input type="text" class="form-control" placeholder="Price" name="price" />
-                              </div>
-                              <div class="mb-3">
-                                <label>Day added</label><br>
-                                <select class="form-control" name="day">
-                                  <option selected disabled value="select">Select Day</option>
-                                  <option value="monday">monday</option>
-                                  <option value="tuesday">tuesday</option>
-                                  <option value="wednesday">wednesday</option>
-                                  <option value="thursday">thursday</option>
-                                  <option value="friday">friday</option>
-                                  <option value="saturday">saturday</option>
-                                  <option value="sunday">sunday</option>
-                                </select>
+                                <label>Mental Images</label>
+                                <input type="file" class="form-control" id="file" name="file"/>
                               </div>
                               <div class="mb-2">
-                                <button type="submit" class="btnAdd btn btn-sm btn-primary" data-bs-dismiss="modal">Add</button>
+                                <label>Description</label>
+                                <textarea v-model="descript" cols="30" rows="3" class="form-control"></textarea>
                               </div>
-                            </form>
+                              <div class="mb-2">
+                                <button type="button" class="btnAdd btn btn-sm btn-primary" @click="addMentalInformation">Add</button>
+                              </div>
+                            </div>
                           </div>
 
 
@@ -170,43 +152,6 @@ if (!isset($_SESSION['user_id'])) {
                             <button type="button" class="btn btn-dark btn-sm" data-bs-dismiss="modal">Close</button>
                           </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-
-                  <section>
-                    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">UPDATE PRODUCT</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <form @submit="updateProduct" novalidate class="userform">
-                              <div class="mb-2">
-                                <label>Product Name</label>
-                                <input type="text" v-model="pname" class="form-control" placeholder="Product name" name="pname" />
-                              </div>
-                              <div class="mb-2">
-                                <label>Quantity</label>
-                                <input type="text" v-model="quantity" class="form-control" placeholder="Quantity" name="quantity" />
-                              </div>
-                              <div class="mb-3">
-                                <label>Price</label>
-                                <input type="text" v-model="price" class="form-control" placeholder="Price" name="price" />
-                              </div>
-                              <div class="mb-2">
-                                <button type="submit" class="btnAdd btn btn-sm btn-success" data-bs-dismiss="modal">Update</button>
-                              </div>
-                            </form>
-                          </div>
-
-                          <!-- Modal footer -->
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-dark btn-sm" data-bs-dismiss="modal">Close</button>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -221,9 +166,6 @@ if (!isset($_SESSION['user_id'])) {
 
 
       <!-- JS -->
-      <script src="../assets/js/axios.js"></script>
-      <script src="../assets/js/vue.3.js"></script>
-      <script src="../assets/js/adminProduct.js"></script>
 
       <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -231,6 +173,9 @@ if (!isset($_SESSION['user_id'])) {
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script src="/PS/assets/js/axios.js"></script>
+      <script src="/PS/assets/js/vue.3.js"></script>
+      <script src="/PS/assets/js/admin.js"></script>
 
       <script>
         var el = document.getElementById("wrapper")

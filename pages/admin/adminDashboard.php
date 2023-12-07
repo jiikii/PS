@@ -25,8 +25,6 @@ if (!isset($_SESSION['user_id'])) {
 
     <div class="d-flex" id="wrapper">
 
-        <!-- sidebar starts -->
-
         <div class="background" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 secondary-text fs-4 fw-bold text-uppercase border-bottom">
                 <i class="fas fa-hands-helping"></i>M.H COMPANION
@@ -95,7 +93,7 @@ if (!isset($_SESSION['user_id'])) {
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-3">
+                        <div class="col-lg-6 text-center">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -108,7 +106,7 @@ if (!isset($_SESSION['user_id'])) {
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#">
+                                <a href="adminUsers.php">
                                     <div class="panel-footer announcement-bottom">
                                         <div class="row">
                                             <div class="col-xs-6">
@@ -122,70 +120,16 @@ if (!isset($_SESSION['user_id'])) {
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-6 text-center">
                             <div class="panel panel-warning">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            <i class="fa fa-check fa-5x"></i>
+                                            <i class="fas fa-table-list fa-5x"></i>
                                         </div>
                                         <div class="col-xs-6 text-right">
-                                            <p class="announcement-heading">{{totalItem}}</p>
-                                            <p class="announcement-text">To-Do Items</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <div class="panel-footer announcement-bottom">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                View
-                                            </div>
-                                            <div class="col-xs-6 text-right">
-                                                <i class="fa fa-arrow-circle-right"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="panel panel-danger">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <i class="fa fa-tasks fa-5x"></i>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <p class="announcement-heading">{{totalError}}</p>
-                                            <p class="announcement-text">Crawl Errors</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <div class="panel-footer announcement-bottom">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                View
-                                            </div>
-                                            <div class="col-xs-6 text-right">
-                                                <i class="fa fa-arrow-circle-right"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="panel panel-success">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <i class="fa fa-comments fa-5x"></i>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <p class="announcement-heading">{{totalOrder}}</p>
-                                            <p class="announcement-text">New Orders!</p>
+                                            <p class="announcement-heading">{{appointmentsTotal}}</p>
+                                            <p class="announcement-text">Appointments</p>
                                         </div>
                                     </div>
                                 </div>
