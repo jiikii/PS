@@ -32,17 +32,21 @@ if (!isset($_SESSION['user_id'])) {
         <i class="fas fa-hands-helping"></i>M.H COMPANION
     </div>
     <div class="list-group list-group-flush my-3">
+
     <a href="councilorDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-gauge me-2"></i>Dashboard
-                </a>
+            <i class="	fab fa-hire-a-helper me-2"></i>Dashboard
+        </a>
         <a href="counsilorPatient.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-house me-2"></i>Patient
+            <i class="fas fa-users me-2"></i>Patient
         </a>
         <a href="councilorAppoint.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-paw me-2"></i>Appointment
+            <i class="fas fa-table-list me-2"></i>Appointment
         </a>
         <a href="councilorChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-paw me-2"></i>Chat Consultation
+            <i class="fas fa-comments me-2"></i>Chat Consultation
+        </a>
+        <a href="councilorMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <i class="fas fa-book-open me-2"></i>Medical Info
         </a>
 
             </div>
@@ -66,7 +70,7 @@ if (!isset($_SESSION['user_id'])) {
                                 <i class="fas fa-user me-2"></i>Councilor
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="#" class="dropdown-item">profile</a></li>
+                                <li><a href="councilorProfile.php" class="dropdown-item">profile</a></li>
                                 <li><a href="#" class="dropdown-item">settings</a></li>
                                 <li><a href="../../index.php" class="dropdown-item">logout</a></li>
                             </ul>

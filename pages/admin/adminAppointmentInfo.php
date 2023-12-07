@@ -33,19 +33,16 @@ if (!isset($_SESSION['user_id'])) {
     </div>
     <div class="list-group list-group-flush my-3">
     <a href="adminDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-gauge me-2"></i>Dashboard
+                    <i class="fab fa-hire-a-helper me-2"></i>Dashboard
                 </a>
         <a href="adminAppointmentInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-house me-2"></i>Appointments
-        </a>
-        <a href="" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-table-list me-2"></i>Councilor
+            <i class="fas fa-table-list me-2"></i>Appointments
         </a>
         <a href="adminUsers.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-paw me-2"></i>Users
+            <i class="fas fa-users me-2"></i>Users & Councilors
         </a>
         <a href="adminMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-users me-2"></i>Medical Info
+            <i class="fas fa-book-open me-2"></i>Medical Info
         </a>
 
             </div>

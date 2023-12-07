@@ -1,5 +1,10 @@
 <?php
+include '../../includes/config.php';
+
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('location:../index.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -9,20 +14,17 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/9a0808c715.js" crossorigin="anonymous"></script> -->
-    <link rel="stylesheet" href="../../style/editProfile.css">
-    <link rel="stylesheet" href="../../style/adminDashboard.css">
-    <title>Edit Patient</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9a0808c715.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="../../style/patientAppointment.css">
+    <link rel="stylesheet" href="../../style/patientAppt.css">
+    <title>Appointment</title>
 </head>
 
 <body>
 
     <div class="d-flex" id="wrapper">
-
 
         <!-- sidebar starts -->
 
@@ -31,25 +33,24 @@ session_start();
                 <i class="fas fa-hands-helping"></i>M.H COMPANION
             </div>
             <div class="list-group list-group-flush my-3">
-                <a href="PatientDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-gauge me-2"></i>Dashboard
+            <a href="PatientDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fab fa-hire-a-helper me-2"></i>Dashboard
                 </a>
                 <a href="PatientAppointment.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-house me-2"></i>Book Appointment
+                    <i class="fas fa-table-list me-2"></i>Book Appointment
                 </a>
                 <a href="patientRecord.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-table-list me-2"></i>Appointment Record
+                    <i class="fas fa-bookmark me-2"></i>Appointment Record
                 </a>
                 <a href="patientCinfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-paw me-2"></i>Councilor's Info
+                    <i class="fas fa-info-circle me-2"></i>Councilor's Info
                 </a>
                 <a href="patientChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-users me-2"></i>Chat Consultation
+                    <i class="fas fa-comments me-2"></i>Chat Consultation
                 </a>
                 <a href="patientMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-users me-2"></i>Medical Info
+                    <i class="fas fa-book-open me-2"></i>Medical Info
                 </a>
-
             </div>
         </div>
 
@@ -162,3 +163,22 @@ session_start();
                     </div>
                 </div>
             </div>
+            
+
+
+
+
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+                    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+                    <script>
+                        var el = document.getElementById("wrapper")
+                        var toggleButton = document.getElementById("menu-toggle")
+
+                        toggleButton.onclick = function() {
+                            el.classList.toggle("toggled")
+                        }
+                    </script>
+</body>
+
+</html>
