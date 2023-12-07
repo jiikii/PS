@@ -19,7 +19,7 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <link rel="stylesheet" href="../../style/patientAppointment.css">
     <link rel="stylesheet" href="../../style/patientAppt.css">
-    <title>Councilor Profile</title>
+    <title>Appointment</title>
 </head>
 
 <body>
@@ -33,19 +33,22 @@ if (!isset($_SESSION['user_id'])) {
                 <i class="fas fa-hands-helping"></i>M.H COMPANION
             </div>
             <div class="list-group list-group-flush my-3">
-                <a href="councilorDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="	fab fa-hire-a-helper me-2"></i>Dashboard
+            <a href="PatientDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fab fa-hire-a-helper me-2"></i>Dashboard
                 </a>
-                <a href="counsilorPatient.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-users me-2"></i>Patient
+                <a href="PatientAppointment.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-table-list me-2"></i>Book Appointment
                 </a>
-                <a href="councilorAppoint.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-table-list me-2"></i>Appointment
+                <a href="patientRecord.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-bookmark me-2"></i>Appointment Record
                 </a>
-                <a href="councilorChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="patientCinfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-info-circle me-2"></i>Councilor's Info
+                </a>
+                <a href="patientChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-comments me-2"></i>Chat Consultation
                 </a>
-                <a href="councilorMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="patientMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-book-open me-2"></i>Medical Info
                 </a>
             </div>
@@ -57,7 +60,7 @@ if (!isset($_SESSION['user_id'])) {
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="dashboard fs-2 m-0">Profile</h2>
+                    <h2 class="dashboard fs-2 m-0">Book Appointment</h2>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -66,10 +69,10 @@ if (!isset($_SESSION['user_id'])) {
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle primary-text fw-bold" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>Councilor
+                                <i class="fas fa-user me-2"></i>Patient
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="councilorProfile.php" class="dropdown-item">profile</a></li>
+                                <li><a href="patientProfile.php" class="dropdown-item">profile</a></li>
                                 <li><a href="#" class="dropdown-item">settings</a></li>
                                 <li><a href="../../index.php" class="dropdown-item">logout</a></li>
                             </ul>
@@ -78,7 +81,7 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
             </nav>
 
-            <div class="container-xl px-4 mt-4">    
+            <div class="container-xl px-4 mt-4">
                 <div class="row">
                     <div class="col-xl-4">
                         <!-- Profile picture card-->
@@ -88,9 +91,8 @@ if (!isset($_SESSION['user_id'])) {
                                 <!-- Profile picture image-->
                                 <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                                 <!-- Profile picture help block-->
-                                <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                                <!-- Profile picture upload button-->
-                                <button class="btn btn-primary" type="button">Upload new image</button>
+                                <div class="small font-italic text-muted mb-4">Name councilor</div>
+                                
                             </div>
                         </div>
                     </div>
@@ -151,31 +153,31 @@ if (!isset($_SESSION['user_id'])) {
                                     </div>
                                     <!-- Save changes button-->
 
-                                    <div class="text-center"><a class="btn btn-primary" href="../patient/editProfile.php">Save Changes</a></div>
+                                    
                                     <br>
-                                    <div class="text-center"><a class="btn btn-primary" href="../counsilor/councilorDashboard.php">Back</a></div>
+                                    <div class="text-center"><a class="btn btn-primary" href="../patient/patientCinfo.php">Back</a></div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
 
 
 
 
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+                    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+                    <script>
+                        var el = document.getElementById("wrapper")
+                        var toggleButton = document.getElementById("menu-toggle")
 
-            <script>
-                var el = document.getElementById("wrapper")
-                var toggleButton = document.getElementById("menu-toggle")
-
-                toggleButton.onclick = function() {
-                    el.classList.toggle("toggled")
-                }
-            </script>
+                        toggleButton.onclick = function() {
+                            el.classList.toggle("toggled")
+                        }
+                    </script>
 </body>
 
 </html>
