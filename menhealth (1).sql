@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2023 at 03:06 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Dec 20, 2023 at 05:05 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,14 +39,18 @@ CREATE TABLE `appointment` (
   `type` varchar(125) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `appointment`
 --
 
 INSERT INTO `appointment` (`apptid`, `patient_id`, `name`, `dateappt`, `timeappt`, `reason`, `councilor`, `status`, `type`, `created`, `updated`) VALUES
-(1, 3, 'humer godinez', '2023-12-07', '21:27', '123123', 'Shirop', 5, 'F2F', '2023-12-07 13:24:35', '2023-12-07 13:24:35');
+(1, 3, 'humer godinez', '2023-12-07', '21:27', '123123', 'Shirop', 5, 'F2F', '2023-12-07 13:24:35', '2023-12-07 13:24:35'),
+(2, 3, 'George alfeser', '2001-02-11', '10:57', 'Natuk an ko doc', 'divine', 1, 'F2F', '2023-12-20 13:42:21', '2023-12-20 13:42:21'),
+(3, 3, '12312', '2023-11-30', '22:18', 'Hello nawala na doc', '', 1, 'F2F', '2023-12-20 14:15:20', '2023-12-20 14:15:20'),
+(4, 3, 'JK', '2023-12-21', '23:24', 'Helle world', 'jd', 1, 'F2F', '2023-12-20 15:21:10', '2023-12-20 15:21:10'),
+(5, 4, 'kaun', '2023-12-22', '23:52', '12312123', '2', 1, 'Meet', '2023-12-20 15:47:17', '2023-12-20 15:47:17');
 
 -- --------------------------------------------------------
 
@@ -60,7 +64,7 @@ CREATE TABLE `chat` (
   `senderid` int(11) NOT NULL,
   `message` text NOT NULL,
   `datesend` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -73,7 +77,7 @@ CREATE TABLE `contract` (
   `apptid` int(11) NOT NULL,
   `councilorid` int(11) NOT NULL,
   `datefinish` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -85,18 +89,18 @@ CREATE TABLE `mentalinfo` (
   `mentid` int(11) NOT NULL,
   `img` text NOT NULL,
   `descript` text NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
+  `treatment` text NOT NULL DEFAULT '\'1\'',
   `datecreated` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mentalinfo`
 --
 
-INSERT INTO `mentalinfo` (`mentid`, `img`, `descript`, `status`, `datecreated`, `updated`) VALUES
-(2, 'Screenshot 2023-06-28 224102.png', '1231231', 1, '2023-12-07 13:50:33', '2023-12-07 13:50:33'),
-(5, 'Screenshot 2023-06-28 224102.png', '12312312', 1, '2023-12-07 13:56:55', '2023-12-07 13:56:55');
+INSERT INTO `mentalinfo` (`mentid`, `img`, `descript`, `treatment`, `datecreated`, `updated`) VALUES
+(2, 'Screenshot 2023-06-28 224102.png', '1231231', 'Hello', '2023-12-07 13:50:33', '2023-12-07 13:50:33'),
+(5, 'Screenshot 2023-06-28 224102.png', '12312312', 'World', '2023-12-07 13:56:55', '2023-12-07 13:56:55');
 
 -- --------------------------------------------------------
 
@@ -106,23 +110,29 @@ INSERT INTO `mentalinfo` (`mentid`, `img`, `descript`, `status`, `datecreated`, 
 
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
+  `profile` text NOT NULL DEFAULT 'doc.jpg',
+  `firstname` varchar(125) NOT NULL,
+  `lastname` varchar(125) NOT NULL,
+  `location` varchar(125) NOT NULL,
   `username` varchar(125) NOT NULL,
   `email` varchar(125) NOT NULL,
+  `phoneNumber` int(12) NOT NULL,
   `password` varchar(125) NOT NULL,
   `role` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `islogged` int(11) NOT NULL DEFAULT 1,
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `email`, `password`, `role`, `status`, `islogged`, `created`, `updated`) VALUES
-(1, 'asd', 'user@gmail.com', '202cb962ac59075b964b07152d234b70', 1, 1, 1, '2023-12-07 10:02:06', '2023-12-07 10:02:06'),
-(3, 'test1', 'test@123', '202cb962ac59075b964b07152d234b70', 2, 0, 1, '2023-12-07 10:14:46', '2023-12-07 10:14:46');
+INSERT INTO `user` (`user_id`, `profile`, `firstname`, `lastname`, `location`, `username`, `email`, `phoneNumber`, `password`, `role`, `status`, `islogged`, `created`, `updated`) VALUES
+(1, 'doc.jpg', 'jk', 'jk', 'lapulapu', 'asd', 'user@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 1, 1, 1, '2023-12-07 10:02:06', '2023-12-07 10:02:06'),
+(3, 'doc.jpg', 'jk', 'jk', 'lapulapu', 'test1', 'test@123', 0, '202cb962ac59075b964b07152d234b70', 2, 0, 1, '2023-12-07 10:14:46', '2023-12-07 10:14:46'),
+(4, 'doc.jpg', '', 'kl', '', 'councilor1@gmail.com', 'councilor1@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 3, 1, 1, '2023-12-20 15:28:02', '2023-12-20 15:28:02');
 
 --
 -- Indexes for dumped tables
@@ -166,7 +176,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `apptid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `apptid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `chat`
@@ -190,7 +200,7 @@ ALTER TABLE `mentalinfo`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
