@@ -23,7 +23,6 @@ if (!isset($_SESSION['user_id'])) {
     <script type="text/javascript" src="../../assets/js/json2.js"></script>
     <script type="text/javascript" src="../../assets/js/script.js"></script>
     <link rel="stylesheet" href="../../style/style1.css" media="screen">
-    <!-- <link rel="stylesheet" href="../../style/pro-style.css" media="screen"> -->
     <link rel="stylesheet" href="../../style/adminDashboard.css">
 
 
@@ -31,7 +30,8 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-
+<div id="patient-user">
+    
     <div class="d-flex" id="wrapper">
 
         <!-- sidebar starts -->
@@ -41,7 +41,7 @@ if (!isset($_SESSION['user_id'])) {
                 <i class="fas fa-hands-helping"></i>M.H COMPANION
             </div>
             <div class="list-group list-group-flush my-3">
-            <a href="PatientDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="PatientDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fab fa-hire-a-helper me-2"></i>Dashboard
                 </a>
                 <a href="PatientAppointment.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -90,24 +90,23 @@ if (!isset($_SESSION['user_id'])) {
             </nav>
 
             <div class="col-xl-12 col-lg-12 col-md-12 col-12">
-                <!-- Card -->
-                <div class="card">
-                    <!-- Calendar -->
-                    <div id='calendar'></div>
+                <div class="d-flex justify-content-center align-items-center my-auto">
+                    <div id="calendar" style="max-width: 1260px; width: 100%; max-height: 600px; height: 100%" class="bg-light text-dark p-3 shadow rounded"></div>
                 </div>
             </div>
         </div>
 
+        </div>
 
     </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/jquery.js"></script>
     <script src="../../assets/vendors/theme.js"></script>
     <script src="../../assets/vendors/fullcalendar.js"></script>
-    <script src="../../assets/vendors/calendar.js"></script>
     <script src="../../assets/vendors/moment.js"></script>
+    <script src="../../assets/js/axios.js"></script>
+    <script src="../../assets/js/vue.3.js"></script>
+    <script src="../../assets/js/patient.js"></script>
 </body>
 
 </html>

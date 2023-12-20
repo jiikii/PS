@@ -101,7 +101,7 @@ if (!isset($_SESSION['user_id'])) {
                                                 <td>{{ ap.type }}</td>
                                                 <td>{{ ap.status == 1 ? 'Pending' : ap.status == 2 ? 'Booked' : ap.status == 3 ? 'Decline' : 'Cancelled' }}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" @click="selectedBooked(ap.apptid)" data-bs-target="#exampleModal">Cancel Appointment</a>
+                                                    <button href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" @click="selectedBooked(ap.apptid)" data-bs-target="#exampleModal" :disabled="ap.status > 1">Cancel Appointment</button>
                                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered text-dark">
                                                             <div class="modal-content" v-for="sba of SelectedBookedAppointments">
@@ -114,7 +114,7 @@ if (!isset($_SESSION['user_id'])) {
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-primary" @click="cancel(sba.apptid)">Save changes</button>
+                                                                    <button type="button" class="btn btn-primary" @click="cancel(sba.apptid)" onclick="window.location.reload()">Cancelled</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -131,16 +131,9 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
     </div>
-<<<<<<< HEAD
     <script src="../../assets/js/axios.js"></script>
     <script src="../../assets/js/vue.3.js"></script>
     <script src="../../assets/js/patient.js"></script>
-=======
-
-
-
-
->>>>>>> 724d5d4288a8ad9e982e3e9695bb8897e7ba0428
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

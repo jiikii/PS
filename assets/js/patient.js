@@ -5,18 +5,49 @@ createApp({
         return {
             bookedAppointments: [],
             SelectedBookedAppointments: [],
+            councilors: [],
+            mentalInfos: [],
+            selectedCouncilors: [],
             date: '',
             time: '',
             name: '',
             councilor: '',
             reason: '',
             type: '',
+            usernameID: '',
+            pic: '',
         }
     },
     methods: {
+        getUsername(id) {
+            var vue = this;
+            var data = new FormData();
+            data.append('method', 'councillor');
+            axios.post('../../includes/patients.php', data).then(function (r) {
+                vue.selectedCouncilors = [];
+
+                for (var v of r.data) {
+                    if(v.user_id == id){
+                        vue.selectedCouncilors.push({
+                            user_id: v.user_id,
+                            firstname: v.firstname,
+                            lastname: v.lastname,
+                            location: v.location,
+                            username: v.username,
+                            email: v.email,
+                            role: v.role,
+                            phoneNumber: v.phoneNumber,
+                            profile: v.profile,
+                            created: v.created,
+                            updated: v.updated,
+                        })
+                    }
+                }
+            });
+        },
         saveBooking: function () {
             var v = this;
-            if (v.date == "" || v.time == "" || v.name == "" || v.councilor == "" || v.reason == "" || v.type == "") {
+            if (v.date == "" || v.time == "" || v.name == "" || v.reason == "" || v.type == "") {
                 alert("Required!");
             } else {
                 var data = new FormData();
@@ -85,17 +116,96 @@ createApp({
                 }
             });
         },
+        getCouncillor() {
+            var vue = this;
+            var data = new FormData();
+            data.append('method', 'councillor');
+            axios.post('../../includes/patients.php', data).then(function (r) {
+                vue.councilors = [];
+
+                for (var v of r.data) {
+                    vue.councilors.push({
+                        user_id: v.user_id,
+                        firstname: v.firstname,
+                        lastname: v.lastname,
+                        location: v.location,
+                        username: v.username,
+                        email: v.email,
+                        role: v.role,
+                        status: v.status,
+                        profile: v.profile,
+                        created: v.created,
+                        updated: v.updated,
+                    })
+                }
+            });
+        },
+        getMentalInfo() {
+            var vue = this;
+            var data = new FormData();
+            data.append('method', 'mentalInfo');
+            axios.post('../../includes/patients.php', data).then(function (r) {
+                vue.mentalInfos = [];
+                for (var v of r.data) {
+                    vue.mentalInfos.push({
+                        mentid: v.mentid,
+                        img: v.img,
+                        descript: v.descript,
+                        treatment: v.treatment,
+                        datecreated: v.datecreated,
+                        updated: v.updated,
+                    })
+                }
+            });
+        },
+        getCalendar() {
+            var vue = this;
+            var data = new FormData();
+            data.append('method', 'bookedAppointment');
+            axios.post('../../includes/patients.php', data).then(function (r) {
+                var eventsData = r.data.map(function (event) {
+                    return {
+                        title: event.name,
+                        start: event.dateappt + 'T' + event.timeappt,
+                    };
+                });
+
+                var calendarEl = document.getElementById("calendar");
+
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    headerToolbar: {
+                        left: "prev,next today",
+                        center: "title",
+                        right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
+                    },
+                    height: 900,
+                    contentHeight: 800,
+                    aspectRatio: 3,
+                    nowIndicator: true,
+                    initialView: "dayGridMonth",
+                    editable: true,
+                    dayMaxEvents: true,
+                    navLinks: true,
+                    events: eventsData
+                });
+
+                calendar.render();
+            });
+        },
+        getPicture(id) {
+            this.pic = id;
+        },
         cancel(id) {
             var v = this;
             var data = new FormData();
             data.append('method', 'cancelAppointment');
             data.append('id', id);
             axios.post('../../includes/patients.php', data).then(function (r) {
-                if(r.data == 200){
+                if (r.data == 200) {
                     alert("Cancelled Appointment!");
-                }else if(r.data == 400){
+                } else if (r.data == 400) {
                     alert("Cannot cancel this appointment!");
-                }else{
+                } else {
                     alert(r.data);
                 }
             });
@@ -119,7 +229,9 @@ createApp({
         }
     },
     created() {
-        console.log("Testing");
         this.bookedAppointment();
+        this.getMentalInfo();
+        this.getCouncillor();
+        this.getCalendar();
     }
 }).mount('#patient-user');

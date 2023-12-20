@@ -57,6 +57,44 @@ function bookedAppointment()
     $con->close();
 }
 
+function councillor()
+{
+    global $con;
+
+    $query = $con->prepare(councillorQuery());
+    $query->execute();
+    $result = $query->get_result();
+    $data = array();
+
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+
+    echo json_encode($data);
+
+    $query->close();
+    $con->close();
+}
+
+function mentalInfo()
+{
+    global $con;
+
+    $query = $con->prepare(mentalInfoQuery());
+    $query->execute();
+    $result = $query->get_result();
+    $data = array();
+
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+
+    echo json_encode($data);
+
+    $query->close();
+    $con->close();
+}
+
 function cancelAppointment()
 {
     global $con;
@@ -92,4 +130,14 @@ function bookedAppointmentQuery()
 function cancelAppointmentQuery()
 {
     return "UPDATE `appointment` SET `status`= 5 WHERE `apptid` = ?";
+}
+
+function councillorQuery()
+{
+    return "SELECT * FROM `user` WHERE `role` = 3";
+}
+
+function mentalInfoQuery()
+{
+    return "SELECT * FROM `mentalinfo`";
 }
