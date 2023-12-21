@@ -68,8 +68,6 @@ if (!isset($_SESSION['user_id'])) {
                 <i class="fas fa-user me-2"></i>Admin
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a href="#" class="dropdown-item">profile</a></li>
-                <li><a href="#" class="dropdown-item">settings</a></li>
                 <li><a href="../../index.php" class="dropdown-item">logout</a></li>
               </ul>
             </li>
@@ -85,8 +83,45 @@ if (!isset($_SESSION['user_id'])) {
               <hr>
               <div class="container bg-light" style="height: 610px; overflow-y: scroll">
                 <div class="featuredTitle p-4">
-                  <div class="text">
+                  <div class="text d-flex justify-content-between">
                     <h2 class="fw-bolder">Users & Councilors</h2>
+                    <button class="btn btn-sm btn-primary px-5" data-bs-toggle="modal" data-bs-target="#addCoun">Add Councilor</button>
+                    <div class="modal fade" id="addCoun" tabindex="-1" aria-labelledby="addCounLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="addCounLabel">Add Councilor</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form @submit="saveUser" class="userform">
+                              <h3 class="text-center">Add Councilor</h3>
+                              <div class="col mb-2">
+                                <label>Username</label>
+                                <input type="text" class="form-control" name="username" placeholder="Username">
+                              </div>
+                              <div class="col mb-2">
+                                <label>Email</label>
+                                <input type="text" class="form-control" name="email" placeholder="Email">
+                              </div>
+                              <div class="col mb-2">
+                                <label>Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="Password">
+                              </div>
+                              <div class="col mb-2 visually-hidden">
+                                <select name="role" class="form-control">
+                                  <option value="3">Doctor(as Councilor)</option>
+                                </select>
+                              </div>
+                              <div class="col mb-2">
+                                <button class="float-end btn col-4 btn-md btn-info px-3">Register</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                   <hr>
                   <div>
@@ -132,15 +167,15 @@ if (!isset($_SESSION['user_id'])) {
                             <form @submit="updateStaff" novalidate class="userform">
                               <div class="col mb-2">
                                 <label>Username</label>
-                                <input type="text" v-model="username" class="form-control" readonly name="username" placeholder="Username">
+                                <input type="text" v-model="username" class="form-control" name="username" placeholder="Username">
                               </div>
                               <div class="col mb-2">
                                 <label>Email</label>
-                                <input type="text" v-model="email" class="form-control" readonly name="email" placeholder="Email">
+                                <input type="text" v-model="email" class="form-control" name="email" placeholder="Email">
                               </div>
                               <div class="col mb-2 ">
                                 <label>Role</label>
-                                <select v-model="role" class="form-control">
+                                <select name="role" class="form-control">
                                   <option value="0">Select Role</option>
                                   <option value="2">Patient</option>
                                   <option value="3">Counsilor</option>

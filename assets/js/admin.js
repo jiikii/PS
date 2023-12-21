@@ -7,6 +7,7 @@ createApp({
             appointmentsTotal: 0,
             appointmentsTotal: '',
             appointmentsTotal: '',
+            treatm: '',
             descript: '',
             searchForMentalInformation: '',
             MentalInformation: [],
@@ -39,9 +40,15 @@ createApp({
             data.append('method','addMentalInformation');
             data.append('file', document.getElementById('file').files[0]);
             data.append('description', vue.descript);
+            data.append('treatm', vue.treatm);
             axios.post('../../includes/adminAppointment.php',data)
             .then(function(r){
-                alert(r.data);
+                if(r.data == 1){
+                    alert('added!');
+                    window.location.reload();
+                }else{
+                    alert(r.data);
+                }
             })
         },
         getMentalInformation:function(){
@@ -57,6 +64,7 @@ createApp({
                         img: v.img,
                         descript: v.descript,
                         status: v.status,
+                        treatment: v.treatment,
                         datecreated: v.datecreated,
                         updated: v.updated
                     })

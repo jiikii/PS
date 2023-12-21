@@ -66,8 +66,6 @@ if (!isset($_SESSION['user_id'])) {
                                 <i class="fas fa-user me-2"></i>Admin
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="#" class="dropdown-item">profile</a></li>
-                                <li><a href="#" class="dropdown-item">settings</a></li>
                                 <li><a href="../../index.php" class="dropdown-item">logout</a></li>
                             </ul>
                         </li>
@@ -136,7 +134,7 @@ if (!isset($_SESSION['user_id'])) {
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#">
+                                <a href="/ps/pages/admin/adminAppointmentinfo.php">
                                     <div class="panel-footer announcement-bottom">
                                         <div class="row">
                                             <div class="col-xs-6">
@@ -150,7 +148,7 @@ if (!isset($_SESSION['user_id'])) {
                                 </a>
                             </div>
                         </div>
-                    </div><!-- /.row -->
+                    </div>
                 </div>
             </div>
         </div>
