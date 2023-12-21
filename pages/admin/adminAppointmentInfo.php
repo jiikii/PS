@@ -66,8 +66,6 @@ if (!isset($_SESSION['user_id'])) {
                                     <i class="fas fa-user me-2"></i>Admin
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a href="#" class="dropdown-item">profile</a></li>
-                                    <li><a href="#" class="dropdown-item">settings</a></li>
                                     <li><a href="../../index.php" class="dropdown-item">logout</a></li>
                                 </ul>
                             </li>
@@ -85,6 +83,8 @@ if (!isset($_SESSION['user_id'])) {
                                         <thead>
                                             <tr>
                                                 <th class="fw-bold">Reference ID</th>
+                                                <th class="fw-bold">Patient Name</th>
+                                                <th class="fw-bold">Councilor Name</th>
                                                 <th class="fw-bold">Appointment Schedule</th>
                                                 <th class="fw-bold">Reason</th>
                                                 <th class="fw-bold">Type</th>
@@ -92,8 +92,10 @@ if (!isset($_SESSION['user_id'])) {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="ap of appointments">
-                                                <th class="fw-bold">{{ap.apptid}}</th>
+                                            <tr v-for="(ap, index) of appointments">
+                                                <th class="fw-bold">{{1+index++}}</th>
+                                                <td>{{ap.lastname}}, {{ap.firstname}}</td>
+                                                <td>{{ap.name}}</td>
                                                 <td>{{ap.timeappt}}</td>
                                                 <td>{{ap.reason}}</td>
                                                 <td>{{ap.type == 1 ? 'F2F' : 'Online Meet'}}</td>

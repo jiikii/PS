@@ -98,7 +98,7 @@ if (!isset($_SESSION['user_id'])) {
                       <div class="row">
                         <div class="col-12 col-lg-3">
                           <div class="col mt-2 mb-3">
-                            <input type="search" v-model="search" @input="searchUsers(search)" class="form-control" placeholder="Search...">
+                            <input type="search" v-model="search" class="form-control" placeholder="Search...">
                           </div>
                         </div>
                       </div>
@@ -110,7 +110,7 @@ if (!isset($_SESSION['user_id'])) {
                           <th>Treatment</th>
                         </thead>
                         <tbody>
-                          <tr v-for="(user, index) in mentalInfos">
+                          <tr v-for="(user, index) in searchMentalInfo">
                             <td>{{ 1+index++ }}</td>
                             <td><img :src="'/ps/imgs/'+ user.img" class="rounded" width="40" height="40" data-bs-toggle="modal" data-bs-target="#viewPic" @click="getPicture(user.img)"></td>
                             <td>{{ user.descript }}</td>

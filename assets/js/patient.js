@@ -10,9 +10,11 @@ createApp({
             selectedCouncilors: [],
             date: '',
             time: '',
+            counsilorSelected: '',
             name: '',
             councilor: '',
             reason: '',
+            search: '',
             type: '',
             usernameID: '',
             pic: '',
@@ -27,20 +29,21 @@ createApp({
                 vue.selectedCouncilors = [];
 
                 for (var v of r.data) {
-                    if(v.user_id == id){
-                        vue.selectedCouncilors.push({
-                            user_id: v.user_id,
-                            firstname: v.firstname,
-                            lastname: v.lastname,
-                            location: v.location,
-                            username: v.username,
-                            email: v.email,
-                            role: v.role,
-                            phoneNumber: v.phoneNumber,
-                            profile: v.profile,
-                            created: v.created,
-                            updated: v.updated,
-                        })
+                    if (v.username == id) {
+                        vue.counsilorSelected = v.username;
+                        //     vue.selectedCouncilors.push({
+                        //         user_id: v.user_id,
+                        //         firstname: v.firstname,
+                        //         lastname: v.lastname,
+                        //         location: v.location,
+                        //         username: v.username,
+                        //         email: v.email,
+                        //         role: v.role,
+                        //         phoneNumber: v.phoneNumber,
+                        //         profile: v.profile,
+                        //         created: v.created,
+                        //         updated: v.updated,
+                        //     })
                     }
                 }
             });
@@ -55,12 +58,13 @@ createApp({
                 data.append('date', v.date);
                 data.append('time', v.time);
                 data.append('name', v.name);
-                data.append('councilor', v.councilor);
+                data.append('councilor', document.getElementById('councilorName').value);
                 data.append('reason', v.reason);
                 data.append('type', v.type);
                 axios.post('../../includes/patients.php', data).then(function (r) {
                     if (r.data == 200) {
                         alert("Book Send!");
+                        window.location.reload();
                     } else if (r.data == 400) {
                         alert("Something is not Right");
                     } else {
@@ -233,5 +237,14 @@ createApp({
         this.getMentalInfo();
         this.getCouncillor();
         this.getCalendar();
+    },
+    computed:{
+        searchMentalInfo(){
+            if(!this.search){
+                return this.mentalInfos;
+            }
+
+            return this.mentalInfos.filter(pr => pr.descript.toLowerCase().includes(this.search.toLowerCase()))
+        }
     }
 }).mount('#patient-user');

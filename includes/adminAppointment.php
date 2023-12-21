@@ -11,7 +11,7 @@ if (function_exists($method)) {
 function getAppointments()
 {
     global $con;
-    $query = $con->prepare("SELECT * FROM `appointment` ORDER BY `created` DESC");
+    $query = $con->prepare("SELECT a.*, u.firstname, u.lastname FROM `appointment` AS a INNER JOIN `user` AS u ON a.patient_id = u.user_id ORDER BY `created` DESC");
     $query->execute();
     $result = $query->get_result();
     $data = array();
@@ -35,8 +35,9 @@ function addMentalInformation()
     }
     
     $description = $_POST['description'];
-    $query = $con->prepare("INSERT INTO `mentalinfo`(`img`, `descript`) VALUES (?,?)");
-    $query->bind_param('ss', $images, $description);
+    $treatm = $_POST['treatm'];
+    $query = $con->prepare("INSERT INTO `mentalinfo`(`img`, `descript`, `treatment`) VALUES (?,?,?)");
+    $query->bind_param('sss', $images, $description, $treatm);
     $query->execute();
     $result = $query->get_result();
     if (!$result) {

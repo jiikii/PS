@@ -36,8 +36,8 @@
                             <div class="col mb-2">
                                 <select name="role" class="form-control">
                                     <option value="2">User(as Patient)</option>
-                                    <option value="3">Doctor(as Councilor)</option>
-                                </select>
+                                    
+                                </select> 
                             </div>
                             <div class="col mb-2">
                                 <button class="registerbtn btn btn-sm btn-info px-3">Register</button>

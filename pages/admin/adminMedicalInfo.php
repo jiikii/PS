@@ -66,8 +66,7 @@ if (!isset($_SESSION['user_id'])) {
                 <i class="fas fa-user me-2"></i>Admin
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a href="#" class="dropdown-item">profile</a></li>
-                <li><a href="#" class="dropdown-item">settings</a></li>
+                
                 <li><a href="../../index.php" class="dropdown-item">logout</a></li>
               </ul>
             </li>
@@ -82,9 +81,6 @@ if (!isset($_SESSION['user_id'])) {
             <div class="secondbg">
               <div class="container">
                 <div class="featuredTitle p-4">
-                  <!-- <div class="text">
-                    <h2 class="fw-bolder">MENTAL DISORDER INFORMATION</h2>
-                  </div> -->
                   <hr>
                   <div class="buttons pt-2">
                     <button class="btn btn-info px-4 text-dark mb-5" data-bs-toggle="modal" data-bs-target="#myModal">ADD </button>
@@ -102,6 +98,7 @@ if (!isset($_SESSION['user_id'])) {
                         <th>ID</th>
                         <th>PICTURE</th>
                         <th>DESCRIPTION</th>
+                        <th>TREATMENT</th>
                         <th>DATETIME</th>
                         <th>ACTION</th>
                       </thead>
@@ -110,6 +107,7 @@ if (!isset($_SESSION['user_id'])) {
                           <td>{{ me.mentid }}</td>
                           <td><img :src="'../../imgs/' + me.img" alt="" width="70" class="rounded"></td>
                           <td>{{ me.descript }}</td>
+                          <td>{{ me.treatment }}</td>
                           <td>{{ me.datecreated }}</td>
                           <td>
                             <button @click="deleteMentalInfo(me.mentid)" class="btn btn-sm btn-danger px-5">Delete</button>
@@ -136,6 +134,10 @@ if (!isset($_SESSION['user_id'])) {
                               <div class="mb-2">
                                 <label>Mental Images</label>
                                 <input type="file" class="form-control" id="file" name="file"/>
+                              </div>
+                              <div class="mb-2">
+                                <label>Treatment</label>
+                                <input type="text" class="form-control" v-model="treatm" id="file" name="file"/>
                               </div>
                               <div class="mb-2">
                                 <label>Description</label>

@@ -112,9 +112,9 @@ if (!isset($_SESSION['user_id'])) {
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <i class="fa fa-users fa-5x"></i>
+                                        <!-- <i class="fa fa-users fa-5x"></i> -->
                                     </div>
-                                    <div class="col-xs-6 text-right">
+                                    <!-- <div class="col-xs-6 text-right">
                                         <p class="announcement-heading">1</p>
                                         <p class="announcement-text">Users</p>
                                     </div>
@@ -128,7 +128,7 @@ if (!isset($_SESSION['user_id'])) {
                                         </div>
                                         <div class="col-xs-6 text-right">
                                             <i class="fa fa-arrow-circle-right"></i>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </a>
@@ -193,11 +193,11 @@ if (!isset($_SESSION['user_id'])) {
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <i class="fa fa-comments fa-5x"></i>
+                                        <!-- <i class="fa fa-comments fa-5x"></i> -->
                                     </div>
                                     <div class="col-xs-6 text-right">
-                                        <p class="announcement-heading">56</p>
-                                        <p class="announcement-text">New Orders!</p>
+                                        <!-- <p class="announcement-heading">56</p>
+                                        <p class="announcement-text">New Orders!</p> -->
                                     </div>
                                 </div>
                             </div>
@@ -205,10 +205,10 @@ if (!isset($_SESSION['user_id'])) {
                                 <div class="panel-footer announcement-bottom">
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            View
+                                            <!-- View -->
                                         </div>
                                         <div class="col-xs-6 text-right">
-                                            <i class="fa fa-arrow-circle-right"></i>
+                                            <!-- <i class="fa fa-arrow-circle-right"></i> -->
                                         </div>
                                     </div>
                                 </div>

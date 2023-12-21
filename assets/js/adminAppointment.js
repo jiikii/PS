@@ -22,6 +22,8 @@ createApp({
                 for(var v of r.data){
                     vue.appointments.push({
                         apptid: v.apptid,
+                        firstname: v.firstname,
+                        lastname: v.lastname,
                         name: v.name,
                         dateappt: v.dateappt,
                         reason: v.reason,
