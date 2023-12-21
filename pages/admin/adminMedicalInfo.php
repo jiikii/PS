@@ -42,6 +42,9 @@ if (!isset($_SESSION['user_id'])) {
         <a href="adminUsers.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
           <i class="fas fa-users me-2"></i>Users & Councilors
         </a>
+        <a href="adminAddCouncilor.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <i class="fas fa-book-open me-2"></i>Add Councilor
+        </a>
         <a href="adminMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
           <i class="fas fa-book-open me-2"></i>Medical Info
         </a>
@@ -113,6 +116,7 @@ if (!isset($_SESSION['user_id'])) {
                           <td>{{ me.datecreated }}</td>
                           <td>
                             <button @click="deleteMentalInfo(me.mentid)" class="btn btn-sm btn-danger px-5">Delete</button>
+                            <button @click="getStaffById(user.id)" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class="btn btn-sm btn-warning mx-1">Edit</button>
                           </td>
                         </tr>
                       </tbody>
