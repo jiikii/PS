@@ -41,8 +41,9 @@ if (!isset($_SESSION['user_id'])) {
         <a href="adminUsers.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
           <i class="fas fa-users me-2"></i>Users & Councilors
         </a>
+        
         <a href="adminMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-          <i class="fas fa-book-open me-2"></i>Medical Info
+          <i class="fas fa-book-open me-2"></i>Mental Disorder Info
         </a>
       </div>
     </div>

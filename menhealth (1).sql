@@ -76,7 +76,7 @@ CREATE TABLE `contract` (
   `contractid` int(11) NOT NULL,
   `apptid` int(11) NOT NULL,
   `councilorid` int(11) NOT NULL,
-  `datefinish` timestamp NOT NULL DEFAULT current_timestamp()
+  `datefinish` timestamp NOT NULL DEFAULT current_timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

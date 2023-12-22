@@ -42,8 +42,9 @@ if (!isset($_SESSION['user_id'])) {
         <a href="adminUsers.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
           <i class="fas fa-users me-2"></i>Users & Councilors
         </a>
+        
         <a href="adminMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-          <i class="fas fa-book-open me-2"></i>Medical Info
+          <i class="fas fa-book-open me-2"></i>Mental Disorder Info
         </a>
       </div>
     </div>
@@ -54,7 +55,7 @@ if (!isset($_SESSION['user_id'])) {
       <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
         <div class="d-flex align-items-center">
           <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-          <h2 class="dashboard fs-2 m-0">Medical Informations</h2>
+          <h2 class="dashboard fs-2 m-0">Mental Disorder Information</h2>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -111,6 +112,7 @@ if (!isset($_SESSION['user_id'])) {
                           <td>{{ me.datecreated }}</td>
                           <td>
                             <button @click="deleteMentalInfo(me.mentid)" class="btn btn-sm btn-danger px-5">Delete</button>
+                            <button @click="getStaffById(user.id)" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class="btn btn-sm btn-warning mx-1">Edit</button>
                           </td>
                         </tr>
                       </tbody>
@@ -124,7 +126,7 @@ if (!isset($_SESSION['user_id'])) {
 
 
                           <div class="modal-header">
-                            <h4 class="modal-title">ADD PRODUCT</h4>
+                            <h4 class="modal-title">ADD INFORMATION</h4>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                           </div>
 

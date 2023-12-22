@@ -49,7 +49,7 @@ if (!isset($_SESSION['user_id'])) {
                     <i class="fas fa-comments me-2"></i>Chat Consultation
                 </a>
                 <a href="patientMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-book-open me-2"></i>Medical Info
+                    <i class="fas fa-book-open me-2"></i>Mental Disorder Info
                 </a>
             </div>
         </div>
@@ -72,8 +72,6 @@ if (!isset($_SESSION['user_id'])) {
                                 <i class="fas fa-user me-2"></i>Patient
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="patientProfile.php" class="dropdown-item">profile</a></li>
-                                <li><a href="#" class="dropdown-item">settings</a></li>
                                 <li><a href="../../index.php" class="dropdown-item">logout</a></li>
                             </ul>
                         </li>
