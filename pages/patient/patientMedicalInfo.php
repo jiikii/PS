@@ -19,7 +19,7 @@ if (!isset($_SESSION['user_id'])) {
   <script src="https://kit.fontawesome.com/9a0808c715.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
   <link rel="stylesheet" href="../../style/patientMedicalInfo.css">
-  <title>Medical Info</title>
+  <title>Mental Info</title>
 </head>
 
 <body>
@@ -49,7 +49,7 @@ if (!isset($_SESSION['user_id'])) {
             <i class="fas fa-comments me-2"></i>Chat Consultation
           </a>
           <a href="patientMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-book-open me-2"></i>Medical Info
+            <i class="fas fa-book-open me-2"></i>Mental Disorder Info
           </a>
         </div>
       </div>
@@ -60,7 +60,7 @@ if (!isset($_SESSION['user_id'])) {
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
           <div class="d-flex align-items-center">
             <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-            <h2 class="dashboard fs-2 m-0">Dashboard</h2>
+            <h2 class="dashboard fs-2 m-0">Mental Disorder Information</h2>
           </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -72,8 +72,7 @@ if (!isset($_SESSION['user_id'])) {
                   <i class="fas fa-user me-2"></i>Patient
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a href="patientProfile.php" class="dropdown-item">profile</a></li>
-                  <li><a href="#" class="dropdown-item">settings</a></li>
+
                   <li><a href="../../index.php" class="dropdown-item">logout</a></li>
                 </ul>
               </li>
