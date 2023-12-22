@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2023 at 09:48 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Dec 22, 2023 at 09:04 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,17 +48,10 @@ CREATE TABLE `appointment` (
 INSERT INTO `appointment` (`apptid`, `patient_id`, `name`, `dateappt`, `timeappt`, `reason`, `councilor`, `status`, `type`, `created`, `updated`) VALUES
 (1, 3, 'humer godinez', '2023-12-07', '21:27', '123123', 'Shirop', 5, 'F2F', '2023-12-07 13:24:35', '2023-12-07 13:24:35'),
 (2, 3, 'George alfeser', '2001-02-11', '10:57', 'Natuk an ko doc', 'divine', 5, 'F2F', '2023-12-20 13:42:21', '2023-12-20 13:42:21'),
-(3, 3, '12312', '2023-11-30', '22:18', 'Hello nawala na doc', '', 5, 'F2F', '2023-12-20 14:15:20', '2023-12-20 14:15:20'),
-(4, 3, 'JK', '2023-12-21', '23:24', 'Helle world', 'jd', 5, 'F2F', '2023-12-20 15:21:10', '2023-12-20 15:21:10'),
-(5, 4, 'kaun', '2023-12-22', '23:52', '12312123', '2', 1, 'Meet', '2023-12-20 15:47:17', '2023-12-20 15:47:17'),
-(6, 4, 'shiro', '2023-12-22', '22:40', 'Nisakit akong tiyan', '', 1, 'F2F', '2023-12-21 14:37:25', '2023-12-21 14:37:25'),
-(7, 4, 'Hello world', '2023-12-22', '22:44', 'HELLO', 'juvelyn1124', 5, 'Meet', '2023-12-21 14:41:41', '2023-12-21 14:41:41'),
-(8, 8, 'axel', '2023-12-21', '22:52', 'oooooo', 'shiro', 1, 'F2F', '2023-12-21 14:53:06', '2023-12-21 14:53:06'),
-(9, 8, 'jk', '2023-12-21', '01:57', 'aaaaaaaa', 'juvelyn1124', 1, 'Meet', '2023-12-21 14:57:58', '2023-12-21 14:57:58'),
-(10, 8, 'bb', '2023-12-21', '15:58', '12323131', 'shiro', 1, 'Meet', '2023-12-21 14:58:30', '2023-12-21 14:58:30'),
-(11, 8, '323131', '2023-12-21', '15:58', '131', 'juvelyn1124', 1, 'F2F', '2023-12-21 14:58:54', '2023-12-21 14:58:54'),
-(12, 10, 'Shiro', '2023-12-23', '21:52', 'Nayabag ', 'cccc', 2, 'Meet', '2023-12-22 01:52:13', '2023-12-22 01:52:13'),
-(13, 12, '123', '2023-12-21', '04:15', '123', 'cccc', 1, 'Meet', '2023-12-22 20:11:22', '2023-12-22 20:11:22');
+(3, 3, '12312', '2023-11-30', '22:18', 'Hello nawala na doc', 'asd', 5, 'F2F', '2023-12-20 14:15:20', '2023-12-20 14:15:20'),
+(4, 3, 'JK', '2023-12-21', '23:24', 'Helle world', 'councilor1@gmail.com', 3, 'F2F', '2023-12-20 15:21:10', '2023-12-20 15:21:10'),
+(5, 4, 'kaun', '2023-12-22', '23:52', '12312123', '2', 5, 'Meet', '2023-12-20 15:47:17', '2023-12-20 15:47:17'),
+(6, 9, 'shi', '2023-12-23', '12:14', 'hqweqwe', 'councilor6', 2, 'F2F', '2023-12-22 20:10:27', '2023-12-22 20:10:27');
 
 -- --------------------------------------------------------
 
@@ -71,8 +64,20 @@ CREATE TABLE `chats` (
   `sender` int(11) NOT NULL,
   `reciever` int(11) NOT NULL,
   `message` text NOT NULL,
-  `datesend` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `chats`
+--
+
+INSERT INTO `chats` (`chatId`, `sender`, `reciever`, `message`, `created`) VALUES
+(0, 4, 3, 'hi', '2023-12-22 20:39:15'),
+(0, 4, 3, 'ywa ka\r\n', '2023-12-22 20:12:53'),
+(0, 3, 4, 'pak u\r\n', '2023-12-22 20:14:04'),
+(0, 10, 9, 'yo', '2023-12-22 20:25:09'),
+(0, 9, 6, 'qwe', '2023-12-22 20:26:17'),
+(0, 9, 10, 'Yo', '2023-12-22 20:26:25');
 
 -- --------------------------------------------------------
 
@@ -107,7 +112,10 @@ CREATE TABLE `mentalinfo` (
 --
 
 INSERT INTO `mentalinfo` (`mentid`, `img`, `descript`, `treatment`, `datecreated`, `updated`) VALUES
-(6, 'couple bed.jpg', 'Hello world', '\'1\'', '2023-12-21 14:23:55', '2023-12-21 14:23:55');
+(7, 'download.jpg', 'Anxiety Disorders - Characterized by excessive worry, fear, or apprehension. Includes disorders such as Generalized Anxiety Disorder (GAD), Panic Disorder, and Phobias.', 'Cognitive-Behavioral Therapy (CBT), medication (antidepressants, benzodiazepines), exposure therapy.', '2023-12-22 20:24:20', '2023-12-22 20:24:20'),
+(8, 'download.png', 'Mood Disorders - Affect a person\'s emotional state. Includes Major Depressive Disorder and Bipolar Disorder.', 'Psychotherapy (especially CBT), antidepressant medications, mood stabilizers.', '2023-12-22 20:25:00', '2023-12-22 20:25:00'),
+(9, 'Sexual-Disorder.jpg', 'Sexual Disorders - Concerns related to sexual function, desire, or behavior.', 'Psychotherapy, behavioral therapy, medication in some cases.', '2023-12-22 20:25:41', '2023-12-22 20:25:41'),
+(10, 'FoodAnxiety-1024x819.jpg', 'food anxiety ', 'eat healthy and nutritious foods', '2023-12-22 20:33:40', '2023-12-22 20:33:40');
 
 -- --------------------------------------------------------
 
@@ -138,10 +146,13 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `profile`, `firstname`, `lastname`, `location`, `username`, `email`, `phoneNumber`, `password`, `role`, `status`, `islogged`, `created`, `updated`) VALUES
 (1, 'doc.jpg', 'jk', 'jk', 'lapulapu', 'asd', 'user@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 1, 1, 1, '2023-12-07 10:02:06', '2023-12-07 10:02:06'),
-(10, 'doc.jpg', 'jk', 'jk', '', 'aaaa', 'aaa@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 2, 1, 1, '2023-12-21 15:22:21', '2023-12-21 15:22:21'),
-(11, 'doc.jpg', 'kjk', 'jkl', '', 'cccc', 'ccc@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 3, 1, 1, '2023-12-21 15:26:13', '2023-12-21 15:26:13'),
-(12, 'doc.jpg', 'asd', 'asd', '', 'pppp', 'pppp@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 2, 1, 1, '2023-12-21 15:31:49', '2023-12-21 15:31:49'),
-(13, 'doc.jpg', 'asd', 'asd', '', '123@123.com', '111@111.com', 0, '202cb962ac59075b964b07152d234b70', 3, 1, 1, '2023-12-21 16:07:30', '2023-12-21 16:07:30');
+(3, 'doc.jpg', 'jk', 'jk', 'lapulapu', 'test1', 'test@123', 0, '202cb962ac59075b964b07152d234b70', 2, 0, 1, '2023-12-07 10:14:46', '2023-12-07 10:14:46'),
+(4, 'doc.jpg', '', 'kl', '', 'councilor1@gmail.com', 'councilor1@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 3, 1, 1, '2023-12-20 15:28:02', '2023-12-20 15:28:02'),
+(5, 'doc.jpg', '', '', '', 'patient4', 'patient4@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 2, 1, 1, '2023-12-22 20:08:38', '2023-12-22 20:08:38'),
+(6, 'doc.jpg', '', '', '', 'councilor4', 'councilor4@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 3, 1, 1, '2023-12-22 20:11:14', '2023-12-22 20:11:14'),
+(8, 'doc.jpg', '', '', '', 'patient6', 'patient6@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 2, 1, 1, '2023-12-22 20:28:22', '2023-12-22 20:28:22'),
+(9, 'doc.jpg', '', '', '', 'patient6', 'patient6@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 2, 1, 1, '2023-12-22 20:28:22', '2023-12-22 20:28:22'),
+(10, 'doc.jpg', '', '', '', 'councilor6', 'councilor6@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 3, 1, 1, '2023-12-22 20:30:53', '2023-12-22 20:30:53');
 
 --
 -- Indexes for dumped tables
@@ -152,12 +163,6 @@ INSERT INTO `user` (`user_id`, `profile`, `firstname`, `lastname`, `location`, `
 --
 ALTER TABLE `appointment`
   ADD PRIMARY KEY (`apptid`);
-
---
--- Indexes for table `chats`
---
-ALTER TABLE `chat`
-  ADD PRIMARY KEY (`chatid`);
 
 --
 -- Indexes for table `contract`
@@ -185,13 +190,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `apptid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `chats`
---
-ALTER TABLE `chat`
-  MODIFY `chatid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `apptid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `contract`
@@ -203,13 +202,13 @@ ALTER TABLE `contract`
 -- AUTO_INCREMENT for table `mentalinfo`
 --
 ALTER TABLE `mentalinfo`
-  MODIFY `mentid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `mentid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
