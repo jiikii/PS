@@ -81,7 +81,7 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
             </nav>
 
-            <div class="container-fluid px-4">
+            <div class="container-fluid px-4" id="appointmentCoun">
 
                 <div class="row my-5">
                     <div class="col">
@@ -105,34 +105,7 @@ if (!isset($_SESSION['user_id'])) {
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <!-- <i class="fa fa-users fa-5x"></i> -->
-                                        </div>
-                                        <!-- <div class="col-xs-6 text-right">
-                                        <p class="announcement-heading">1</p>
-                                        <p class="announcement-text">Users</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer announcement-bottom">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            View
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <i class="fa fa-arrow-circle-right"></i>
-                                        </div> -->
-                                    </div>
-                                </div>
-                                </a>
-                            </div>
-                        </div>
+                    <div class="d-flex justify-content-center">
                         <div class="col-lg-3">
                             <div class="panel panel-warning">
                                 <div class="panel-heading">
@@ -141,12 +114,12 @@ if (!isset($_SESSION['user_id'])) {
                                             <i class="fa fa-check fa-5x"></i>
                                         </div>
                                         <div class="col-xs-6 text-right">
-                                            <p class="announcement-heading">12</p>
-                                            <p class="announcement-text">To-Do Items</p>
+                                            <p class="announcement-heading">{{appointments.length}}</p>
+                                            <p class="announcement-text">Total Appointment</p>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#">
+                                <a href="councilorAppoint.php">
                                     <div class="panel-footer announcement-bottom">
                                         <div class="row">
                                             <div class="col-xs-6">
@@ -160,60 +133,7 @@ if (!isset($_SESSION['user_id'])) {
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="panel panel-danger">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <i class="fa fa-tasks fa-5x"></i>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <p class="announcement-heading">18</p>
-                                            <p class="announcement-text">Crawl Errors</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <div class="panel-footer announcement-bottom">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                View
-                                            </div>
-                                            <div class="col-xs-6 text-right">
-                                                <i class="fa fa-arrow-circle-right"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="panel panel-success">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <!-- <i class="fa fa-comments fa-5x"></i> -->
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <!-- <p class="announcement-heading">56</p>
-                                        <p class="announcement-text">New Orders!</p> -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <div class="panel-footer announcement-bottom">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <!-- View -->
-                                            </div>
-                                            <div class="col-xs-6 text-right">
-                                                <!-- <i class="fa fa-arrow-circle-right"></i> -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+
                     </div><!-- /.row -->
                 </div>
 
@@ -223,8 +143,9 @@ if (!isset($_SESSION['user_id'])) {
 
         </div>
 
-
-
+        <script src="/PS/assets/js/axios.js"></script>
+        <script src="/PS/assets/js/vue.3.js"></script>
+        <script src="/PS/assets/js/counci.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
