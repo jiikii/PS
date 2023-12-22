@@ -84,7 +84,7 @@ if (!isset($_SESSION['user_id'])) {
                 <div class="featuredTitle p-4">
                   <hr>
                   <div class="buttons pt-2">
-                    <button class="btn btn-info px-4 text-dark mb-5" data-bs-toggle="modal" data-bs-target="#myModal">ADD </button>
+                    <!-- <button class="btn btn-info px-4 text-dark mb-5" data-bs-toggle="modal" data-bs-target="#myModal">ADD </button> -->
                   </div>
                   <div>
                     <div class="row">
@@ -101,7 +101,6 @@ if (!isset($_SESSION['user_id'])) {
                         <th>DESCRIPTION</th>
                         <th>TREATMENT</th>
                         <th>DATETIME</th>
-                        <th>ACTION</th>
                       </thead>
                       <tbody>
                         <tr v-for="me in searchForMental">
@@ -110,10 +109,6 @@ if (!isset($_SESSION['user_id'])) {
                           <td>{{ me.descript }}</td>
                           <td>{{ me.treatment }}</td>
                           <td>{{ me.datecreated }}</td>
-                          <td>
-                            <button @click="deleteMentalInfo(me.mentid)" class="btn btn-sm btn-danger px-5">Delete</button>
-                            <button @click="getStaffById(user.id)" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class="btn btn-sm btn-warning mx-1">Edit</button>
-                          </td>
                         </tr>
                       </tbody>
                     </table>

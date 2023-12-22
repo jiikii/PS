@@ -17,18 +17,18 @@ createApp({
             data.append("METHOD", "getAllWhoMessage");
             axios.post('/ps/includes/chat.php', data)
                 .then(function (r) {
-                    vue.allUsers = [];
+                    // vue.allUsers = [];
 
-                    for (var v of r.data) {
-                        vue.allUsers.push({
-                            message: v.message,
-                            sender: v.sender,
-                            sendPic: v.sendPic,
-                            lastname: v.lastname,
-                            firstname: v.firstname,
-                            message: v.message,
-                        });
-                    }
+                    // for (var v of r.data) {
+                    //     vue.allUsers.push({
+                    //         message: v.message,
+                    //         sender: v.sender,
+                    //         sendPic: v.sendPic,
+                    //         lastname: v.lastname,
+                    //         firstname: v.firstname,
+                    //         message: v.message,
+                    //     });
+                    // }
                 });
         },
         selectedUI() {

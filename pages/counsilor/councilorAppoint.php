@@ -70,8 +70,6 @@ if (!isset($_SESSION['user_id'])) {
                                 <i class="fas fa-user me-2"></i>Councilor
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="councilorProfile.php" class="dropdown-item">profile</a></li>
-                                <li><a href="#" class="dropdown-item">settings</a></li>
                                 <li><a href="../../index.php" class="dropdown-item">logout</a></li>
                             </ul>
                         </li>
@@ -81,52 +79,38 @@ if (!isset($_SESSION['user_id'])) {
 
 
             <div class="mt-5 mx-5"></div>
-            <main class="content">
+            <main class="content" id="appointmentCoun">
                 <section class="ftco-section">
                     <div class="container bg-light">
                         <div class="row">
                             <div class="col-md-12 border p-5">
-                                <h4 class="mb-4">List of Appointments</h4>
-                                <table class="table border">
+                                <h4 class="mb-4">List of Appointment</h4>
+                                <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="fw-bold">Reference</th>
+                                            <th class="fw-bold">Reference ID</th>
+                                            <th class="fw-bold">Patient Name</th>
+                                            <th class="fw-bold">Councilor Name</th>
                                             <th class="fw-bold">Appointment Schedule</th>
                                             <th class="fw-bold">Reason</th>
                                             <th class="fw-bold">Type</th>
                                             <th class="fw-bold">Status</th>
-                                            <th class="fw-bold">Action</th>
+                                            <th class="fw-bold text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th class="fw-bold">R12317287WAHA1</th>
-                                            <td>Wed Sept 29 2023</td>
-                                            <td>Too Much Headache</td>
-                                            <td>F2F</td>
-                                            <td>Booked</td>
-                                            <td class="text-white">
-                                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">View Info</a>
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">View
-                                                                    Information</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Basta mao nani
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-primary">Save
-                                                                    changes</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        <tr v-for="(ap, index) of appointments">
+                                            <th class="fw-bold">{{1+index++}}</th>
+                                            <td>{{ap.lastname}}, {{ap.firstname}}</td>
+                                            <td>{{ap.name}}</td>
+                                            <td>{{ap.dateappt}} : {{ap.timeappt}}</td>
+                                            <td>{{ap.reason}}</td>
+                                            <td>{{ap.type == 1 ? 'F2F' : 'Online Meet'}}</td>
+                                            <td>{{ap.status == 2 ? 'Booked': ap.status == 1 ? 'Pending' : 'Decline'}}</td>
+                                            <td>
+                                                <button type="button" class="me-1 btn btn-primary btn-sm text-white" @click="accept(ap.apptid)">Accept</button>
+                                                <button type="button" class="me-1 btn btn-warning btn-sm text-white" @click="decline(ap.apptid)">Decline</button>
+                                                <button type="button" class="me-1 btn btn-danger btn-sm text-white" @click="delete(ap.apptid)">Delete</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -142,6 +126,9 @@ if (!isset($_SESSION['user_id'])) {
 
 
 
+    <script src="/PS/assets/js/axios.js"></script>
+    <script src="/PS/assets/js/vue.3.js"></script>
+    <script src="/PS/assets/js/counci.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 

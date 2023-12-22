@@ -55,16 +55,16 @@ INSERT INTO `appointment` (`apptid`, `patient_id`, `name`, `dateappt`, `timeappt
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chat`
+-- Table structure for table `chats`
 --
 
-CREATE TABLE `chat` (
-  `chatid` int(11) NOT NULL,
-  `receiverid` int(11) NOT NULL,
-  `senderid` int(11) NOT NULL,
+CREATE TABLE `chats` (
+  `chatId` int(11) NOT NULL,
+  `sender` int(11) NOT NULL,
+  `reciever` int(11) NOT NULL,
   `message` text NOT NULL,
-  `datesend` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -147,7 +147,7 @@ ALTER TABLE `appointment`
 --
 -- Indexes for table `chat`
 --
-ALTER TABLE `chat`
+ALTER TABLE `chats`
   ADD PRIMARY KEY (`chatid`);
 
 --
@@ -181,7 +181,7 @@ ALTER TABLE `appointment`
 --
 -- AUTO_INCREMENT for table `chat`
 --
-ALTER TABLE `chat`
+ALTER TABLE `chats`
   MODIFY `chatid` int(11) NOT NULL AUTO_INCREMENT;
 
 --

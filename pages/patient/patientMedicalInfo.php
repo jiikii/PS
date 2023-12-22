@@ -53,9 +53,6 @@ if (!isset($_SESSION['user_id'])) {
           </a>
         </div>
       </div>
-
-      <!-- sidebar ends -->
-
       <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
           <div class="d-flex align-items-center">
