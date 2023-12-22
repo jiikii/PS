@@ -5,12 +5,15 @@ createApp({
         return{
             username:'',
             email:'',
+            searchAppointment:'',
+            appointmentPendBooked: 0,
             password:'',
             role: '0',
             appointments:[],
             id:0
         }
     },
+    
     methods:{
         getAppointments:function(){
             var data = new FormData();
@@ -40,5 +43,21 @@ createApp({
     },
     created:function(){
         this.getAppointments();
+    },
+    computed:{
+        searchAppointments(){
+            if(!this.searchAppointment){
+                return this.appointments;
+            }
+    
+            return this.appointments.filter(pr => pr.name.toLowerCase().includes(this.searchAppointment.toLowerCase()));
+        },
+        filterAppointments(){
+            if(this.appointmentPendBooked == 0){
+                return this.appointments;
+            }
+    
+            return this.appointments.filter(pr => pr.status.toLowerCase().includes(this.appointmentPendBooked.toLowerCase()));
+        }
     }
 }).mount('#addAppointment-app');

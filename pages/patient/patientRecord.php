@@ -41,8 +41,8 @@ if (!isset($_SESSION['user_id'])) {
                     <a href="patientCinfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fas fa-paw me-2"></i>Councilor's Info
                     </a>
-                    <a href="patientChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fas fa-users me-2"></i>Chat Consultation
+                    <a href="../chat/chats.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                        <i class="fas fa-comments me-2"></i>Chat Consultation
                     </a>
                     <a href="patientMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fas fa-users me-2"></i>Medical Info

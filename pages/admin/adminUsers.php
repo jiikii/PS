@@ -122,6 +122,13 @@ if (!isset($_SESSION['user_id'])) {
                   </div>
                   <hr>
                   <div>
+                    <div class="col-2 float-end">
+                      <select v-model="sortingRole" class="my-3 col-4 form-control">
+                        <option value="0">Select</option>
+                        <option value="2">Patient</option>
+                        <option value="3">Councilor</option>
+                      </select>
+                    </div>
                     <table class="table table-info">
                       <thead>
                         <th>ID</th>
@@ -132,13 +139,12 @@ if (!isset($_SESSION['user_id'])) {
                         <th>Action</th>
                       </thead>
                       <tbody>
-                        <tr v-for="(user,index) in users">
+                        <tr v-for="(user,index) in sorting">
                           <td>{{ 1 + index++ }}</td>
                           <td>{{ user.username }}</td>
                           <td>{{ user.email }}</td>
                           <td>{{ user.status == 1 ? 'Active' : 'Banned' }}</td>
                           <td>{{ user.role == 2 ? 'Patient' : 'Councilor'}}</td>
-
                           <td>
                             <button @click="getStaffById(user.id)" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class="btn btn-sm btn-warning mx-1">Edit</button>
                             <button @click="deleteStaff(user.id)" class="btn btn-sm btn-danger">delete</button>

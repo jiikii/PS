@@ -40,10 +40,7 @@ function bookedAppointment()
 {
     global $con;
 
-    $id = $_SESSION['user_id'];
-
     $query = $con->prepare(bookedAppointmentQuery());
-    $query->bind_param('i', $id);
     $query->execute();
     $result = $query->get_result();
     $data = array();
@@ -124,7 +121,7 @@ function saveBookingQuery()
 
 function bookedAppointmentQuery()
 {
-    return "SELECT `apptid`, `patient_id`, `name`, `dateappt`, `timeappt`, `reason`, `councilor`, `status`, `type`, `created`, `updated` FROM `appointment` WHERE `patient_id` = ?";
+    return "SELECT `apptid`, `patient_id`, `name`, `dateappt`, `timeappt`, `reason`, `councilor`, `status`, `type`, `created`, `updated` FROM `appointment` WHERE `status` != 5";
 }
 
 function cancelAppointmentQuery()

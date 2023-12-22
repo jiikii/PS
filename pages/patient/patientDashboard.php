@@ -30,71 +30,71 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-<div id="patient-user">
-    
-    <div class="d-flex" id="wrapper">
+    <div id="patient-user">
 
-        <!-- sidebar starts -->
+        <div class="d-flex" id="wrapper">
 
-        <div class="background" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 secondary-text fs-4 fw-bold text-uppercase border-bottom">
-                <i class="fas fa-hands-helping"></i>M.H COMPANION
-            </div>
-            <div class="list-group list-group-flush my-3">
-                <a href="PatientDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fab fa-hire-a-helper me-2"></i>Dashboard
-                </a>
-                <a href="PatientAppointment.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-table-list me-2"></i>Book Appointment
-                </a>
-                <a href="patientRecord.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-bookmark me-2"></i>Appointment Record
-                </a>
-                <a href="patientCinfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-info-circle me-2"></i>Councilor's Info
-                </a>
-                <a href="patientChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-comments me-2"></i>Chat Consultation
-                </a>
-                <a href="patientMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fas fa-book-open me-2"></i>Medical Info
-                </a>
-            </div>
-        </div>
+            <!-- sidebar starts -->
 
-        <!-- sidebar ends -->
-
-        <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
-                <div class="d-flex align-items-center">
-                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="dashboard fs-2 m-0">Book Appointment</h2>
+            <div class="background" id="sidebar-wrapper">
+                <div class="sidebar-heading text-center py-4 secondary-text fs-4 fw-bold text-uppercase border-bottom">
+                    <i class="fas fa-hands-helping"></i>M.H COMPANION
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle primary-text fw-bold" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>Patient
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="patientProfile.php" class="dropdown-item">profile</a></li>
-                                <li><a href="#" class="dropdown-item">settings</a></li>
-                                <li><a href="../../index.php" class="dropdown-item">logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-            <div class="col-xl-12 col-lg-12 col-md-12 col-12">
-                <div class="d-flex justify-content-center align-items-center my-auto">
-                    <div id="calendar" style="max-width: 1260px; width: 100%; max-height: 600px; height: 100%" class="bg-light text-dark p-3 shadow rounded"></div>
+                <div class="list-group list-group-flush my-3">
+                    <a href="PatientDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                        <i class="fab fa-hire-a-helper me-2"></i>Dashboard
+                    </a>
+                    <a href="PatientAppointment.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                        <i class="fas fa-table-list me-2"></i>Book Appointment
+                    </a>
+                    <a href="patientRecord.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                        <i class="fas fa-bookmark me-2"></i>Appointment Record
+                    </a>
+                    <a href="patientCinfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                        <i class="fas fa-info-circle me-2"></i>Councilor's Info
+                    </a>
+                    <a href="../chat/chats.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                        <i class="fas fa-comments me-2"></i>Chat Consultation
+                    </a>
+                    <a href="patientMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                        <i class="fas fa-book-open me-2"></i>Medical Info
+                    </a>
                 </div>
             </div>
-        </div>
+
+            <!-- sidebar ends -->
+
+            <div id="page-content-wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                        <h2 class="dashboard fs-2 m-0">Book Appointment</h2>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle primary-text fw-bold" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user me-2"></i>Patient
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a href="patientProfile.php" class="dropdown-item">profile</a></li>
+                                    <li><a href="#" class="dropdown-item">settings</a></li>
+                                    <li><a href="../../index.php" class="dropdown-item">logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                    <div class="d-flex justify-content-center align-items-center my-auto">
+                        <div id="calendar" style="max-width: 1260px; width: 100%; max-height: 600px; height: 100%" class="bg-light text-dark p-3 shadow rounded"></div>
+                    </div>
+                </div>
+            </div>
 
         </div>
 

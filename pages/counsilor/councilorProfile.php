@@ -42,7 +42,7 @@ if (!isset($_SESSION['user_id'])) {
                 <a href="councilorAppoint.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-table-list me-2"></i>Appointment
                 </a>
-                <a href="councilorChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../chat/chats.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-comments me-2"></i>Chat Consultation
                 </a>
                 <a href="councilorMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -78,7 +78,7 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
             </nav>
 
-            <div class="container-xl px-4 mt-4">    
+            <div class="container-xl px-4 mt-4">
                 <div class="row">
                     <div class="col-xl-4">
                         <!-- Profile picture card-->

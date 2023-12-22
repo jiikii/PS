@@ -46,7 +46,7 @@ if (!isset($_SESSION['user_id'])) {
                     <a href="patientCinfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fas fa-info-circle me-2"></i>Councilor's Info
                     </a>
-                    <a href="patientChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <a href="../chat/chats.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fas fa-comments me-2"></i>Chat Consultation
                     </a>
                     <a href="patientMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -99,6 +99,7 @@ if (!isset($_SESSION['user_id'])) {
                                         </div>
                                         <div class="text-center">
                                             <a class="btn btn-primary col-7" href="../patient/patientAppointment.php" data-bs-toggle="modal" data-bs-target="#setAppoint" @click="getUsername(c.user_id)">View Profile</a>
+                                            <a class="btn btn-primary col-7" :href="'../chat/chatroom.php?id=' +c.user_id" >Message</a>
                                         </div>
                                     </div>
                                 </div>

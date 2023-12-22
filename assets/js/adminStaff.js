@@ -8,7 +8,8 @@ createApp({
             password: '',
             role: '0',
             users: [],
-            id: 0
+            id: 0,
+            sortingRole: 0
         }
     },
     methods: {
@@ -133,5 +134,15 @@ createApp({
     },
     created: function () {
         this.getUsers();
+    },
+    computed:{
+        sorting() {
+            if (this.sortingRole == 0) {
+                return this.users;
+            }
+        
+            return this.users.filter(pr => pr.role == this.sortingRole);
+        }
+        
     }
 }).mount('#addStaff-app');

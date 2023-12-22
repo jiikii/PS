@@ -29,21 +29,21 @@ createApp({
                 vue.selectedCouncilors = [];
 
                 for (var v of r.data) {
-                    if (v.username == id) {
+                    if (v.user_id == id) {
                         vue.counsilorSelected = v.username;
-                        //     vue.selectedCouncilors.push({
-                        //         user_id: v.user_id,
-                        //         firstname: v.firstname,
-                        //         lastname: v.lastname,
-                        //         location: v.location,
-                        //         username: v.username,
-                        //         email: v.email,
-                        //         role: v.role,
-                        //         phoneNumber: v.phoneNumber,
-                        //         profile: v.profile,
-                        //         created: v.created,
-                        //         updated: v.updated,
-                        //     })
+                        vue.selectedCouncilors.push({
+                            user_id: v.user_id,
+                            firstname: v.firstname,
+                            lastname: v.lastname,
+                            location: v.location,
+                            username: v.username,
+                            email: v.email,
+                            role: v.role,
+                            phoneNumber: v.phoneNumber,
+                            profile: v.profile,
+                            created: v.created,
+                            updated: v.updated,
+                        })
                     }
                 }
             });
@@ -102,7 +102,7 @@ createApp({
             axios.post('../../includes/patients.php', data).then(function (r) {
                 v.SelectedBookedAppointments = [];
                 for (var ba of r.data) {
-                    if (ba.apptid) {
+                    if (ba.apptid == id) {
                         v.SelectedBookedAppointments.push({
                             apptid: ba.apptid,
                             patient_id: ba.patient_id,
@@ -238,9 +238,9 @@ createApp({
         this.getCouncillor();
         this.getCalendar();
     },
-    computed:{
-        searchMentalInfo(){
-            if(!this.search){
+    computed: {
+        searchMentalInfo() {
+            if (!this.search) {
                 return this.mentalInfos;
             }
 

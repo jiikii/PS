@@ -33,7 +33,7 @@ if (!isset($_SESSION['user_id'])) {
                 <i class="fas fa-hands-helping"></i>M.H COMPANION
             </div>
             <div class="list-group list-group-flush my-3">
-            <a href="PatientDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="PatientDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fab fa-hire-a-helper me-2"></i>Dashboard
                 </a>
                 <a href="PatientAppointment.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -45,7 +45,7 @@ if (!isset($_SESSION['user_id'])) {
                 <a href="patientCinfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-info-circle me-2"></i>Councilor's Info
                 </a>
-                <a href="patientChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../chat/chats.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-comments me-2"></i>Chat Consultation
                 </a>
                 <a href="patientMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -163,22 +163,22 @@ if (!isset($_SESSION['user_id'])) {
                     </div>
                 </div>
             </div>
-            
 
 
 
 
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
-                    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-                    <script>
-                        var el = document.getElementById("wrapper")
-                        var toggleButton = document.getElementById("menu-toggle")
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-                        toggleButton.onclick = function() {
-                            el.classList.toggle("toggled")
-                        }
-                    </script>
+            <script>
+                var el = document.getElementById("wrapper")
+                var toggleButton = document.getElementById("menu-toggle")
+
+                toggleButton.onclick = function() {
+                    el.classList.toggle("toggled")
+                }
+            </script>
 </body>
 
 </html>
