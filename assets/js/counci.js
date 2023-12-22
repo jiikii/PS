@@ -41,10 +41,13 @@ createApp({
             data.append('id', id);
             axios.post('../../includes/adminAppointment.php', data)
                 .then(function (r) {
-                    alert(r.data);
+                    if (r.data == 1) {
+                        window.location.reload();
+                    }
                 })
         },
         decline(id) {
+            alert(id);
             var data = new FormData();
             const vue = this;
 
@@ -52,10 +55,12 @@ createApp({
             data.append('id', id);
             axios.post('../../includes/adminAppointment.php', data)
                 .then(function (r) {
-                    alert(r.data);
+                    if (r.data == 1) {
+                        window.location.reload();
+                    }
                 })
         },
-        delete(id) {
+        deleteThisId(id) {
             var data = new FormData();
             const vue = this;
 
@@ -63,7 +68,9 @@ createApp({
             data.append('id', id);
             axios.post('../../includes/adminAppointment.php', data)
                 .then(function (r) {
-                    alert(r.data);
+                    if (r.data == 1) {
+                        window.location.reload();
+                    }
                 })
         },
     },

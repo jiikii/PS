@@ -27,10 +27,9 @@ createApp({
             data.append('method', 'councillor');
             axios.post('../../includes/patients.php', data).then(function (r) {
                 vue.selectedCouncilors = [];
-
+                vue.councilor = id;
                 for (var v of r.data) {
                     if (v.user_id == id) {
-                        vue.counsilorSelected = v.username;
                         vue.selectedCouncilors.push({
                             user_id: v.user_id,
                             firstname: v.firstname,
@@ -58,7 +57,7 @@ createApp({
                 data.append('date', v.date);
                 data.append('time', v.time);
                 data.append('name', v.name);
-                data.append('councilor', document.getElementById('councilorName').value);
+                data.append('councilor', v.councilor);
                 data.append('reason', v.reason);
                 data.append('type', v.type);
                 axios.post('../../includes/patients.php', data).then(function (r) {

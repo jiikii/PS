@@ -66,10 +66,9 @@ function delete()
 {
     global $con;
 
-    $name = $_POST['id'];
-
+    $id = $_POST['id'];
     $query = $con->prepare("DELETE FROM `appointment` WHERE `apptid` = ?");
-    $query->bind_param('i', $name);
+    $query->bind_param('i', $id);
     $query->execute();
     $result = $query->get_result();
     echo 1;

@@ -110,7 +110,7 @@ if (!isset($_SESSION['user_id'])) {
                                             <td>
                                                 <button type="button" class="me-1 btn btn-primary btn-sm text-white" @click="accept(ap.apptid)">Accept</button>
                                                 <button type="button" class="me-1 btn btn-warning btn-sm text-white" @click="decline(ap.apptid)">Decline</button>
-                                                <button type="button" class="me-1 btn btn-danger btn-sm text-white" @click="delete(ap.apptid)">Delete</button>
+                                                <button type="button" class="me-1 btn btn-danger btn-sm text-white" @click="deleteThisId(ap.apptid)">Delete</button>
                                             </td>
                                         </tr>
                                     </tbody>

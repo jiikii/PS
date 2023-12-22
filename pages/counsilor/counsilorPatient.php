@@ -88,18 +88,18 @@ if (!isset($_SESSION['user_id'])) {
                                 <table class="table border">
                                     <thead>
                                         <tr>
-                                            <th class="fw-bold">Reference</th>
-                                            <th class="fw-bold">Lastname</th>
-                                            <th class="fw-bold">Firstname</th>
-                                            <th class="fw-bold">Action</th>
+                                            <th class="text-center fw-bold">Reference</th>
+                                            <th class="text-center fw-bold">Username</th>
+                                            <th class="text-center fw-bold">Status</th>
+                                            <th class="text-center fw-bold">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr v-for="(ap, index) of appointments">
-                                            <th class="fw-bold">{{1+index++}}</th>
-                                            <td>{{ap.lastname}}</td>
-                                            <td>{{ap.firstname}}</td>
-                                            <td>
+                                            <th class="text-center" class="fw-bold">{{1+index++}}</th>
+                                            <td class="text-center" class="text-capitalize">{{ap.name}}</td>
+                                            <td class="text-center">{{ap.status == 2 ? 'Booked': ap.status == 1 ? 'Pending' : 'Decline'}}</td>
+                                            <td class="text-center">
                                                 <a :href="'../chat/chatroom.php?id='+ap.patient_id" class="me-1 btn btn-primary btn-sm text-white" >Message</a>
                                             </td>
                                         </tr>
