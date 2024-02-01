@@ -16,6 +16,7 @@ createApp({
             reason: '',
             search: '',
             type: '',
+            myId: 0,
             usernameID: '',
             pic: '',
         }
@@ -75,7 +76,7 @@ createApp({
         bookedAppointment() {
             var v = this;
             var data = new FormData();
-            data.append('method', 'bookedAppointment');
+            data.append('method', 'bookedAppointmentAll');
             axios.post('../../includes/patients.php', data).then(function (r) {
                 for (var ba of r.data) {
                     v.bookedAppointments.push({
@@ -161,16 +162,36 @@ createApp({
                 }
             });
         },
+        getMyId() {
+            var vue = this;
+            var data = new FormData();
+            data.append('method', 'getMyId');
+            axios.post('../../includes/patients.php', data).then(function (r) {
+                for (var v of r.data) {
+                    vue.myId = v.user_id;
+                }
+            });
+        },
         getCalendar() {
             var vue = this;
             var data = new FormData();
             data.append('method', 'bookedAppointment');
             axios.post('../../includes/patients.php', data).then(function (r) {
+                
                 var eventsData = r.data.map(function (event) {
-                    return {
-                        title: event.name,
-                        start: event.dateappt + 'T' + event.timeappt,
-                    };
+                    if (event.patient_id == vue.myId && event.councilor === event.councilor) {
+                        return {
+                            title: event.name,
+                            start: event.dateappt + 'T' + event.timeappt,
+                            color: 'blue'
+                        };
+                    } else {
+                        return {
+                            title: event.name,
+                            start: event.dateappt + 'T' + event.timeappt,
+                            color: 'red'
+                        };
+                    }
                 });
 
                 var calendarEl = document.getElementById("calendar");
@@ -235,6 +256,7 @@ createApp({
         this.bookedAppointment();
         this.getMentalInfo();
         this.getCouncillor();
+        this.getMyId();
         this.getCalendar();
     },
     computed: {

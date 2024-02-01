@@ -26,13 +26,13 @@ if (!isset($_SESSION['user_id'])) {
     <div class="container-fluid bg-white p-0 vh-100" id="chatHub">
         <section id="chatHub">
             <div class="container py-4 mt-1">
-                <h1 class="logo me-auto me-lg-0"><a href="../index.php" class="nav-link">MENTAL INFO</span></a></h1>
+                <h1 class="logo me-auto me-lg-0"><a href="../index.php" class="nav-link"> MENTAL INFO </a></h1>
                 <div class="row">
                     <div class=" d-flex justify-content-center align-items-center">
-
                         <div class="card col-lg-8 col-12" id="chat3" style="border-radius: 15px;">
-                            <div class="card-body mt-4">
-                                <div data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px; overflow-y: scroll;">
+                            <div class="card-body">
+                                <a href="../index.php" class="p-2">Back</a>
+                                <div data-mdb-perfect-scrollbar="true" class="mt-4" style="position: relative; height: 500px; overflow-y: scroll;">
                                     <ul class="list-unstyled mb-0">
                                         <li class="p-2 border-bottom" v-for="al of allUsers">
                                             <a :href="'chatroom.php?id='+al.sender" class="d-flex justify-content-between">

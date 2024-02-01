@@ -166,6 +166,10 @@ if (!isset($_SESSION['user_id'])) {
         <script src="../../assets/js/vue.3.js"></script>
         <script src="../../assets/js/patient.js"></script>
         <script>
+            var currentDate = new Date().toISOString().split('T')[0];
+
+            document.getElementById('date').min = currentDate;
+
             var el = document.getElementById("wrapper")
             var toggleButton = document.getElementById("menu-toggle")
 

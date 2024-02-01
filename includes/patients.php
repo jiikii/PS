@@ -36,6 +36,27 @@ function saveBooking()
     $con->close();
 }
 
+function getMyId()
+{
+    global $con;
+
+    $id = $_SESSION['user_id'];
+
+    $query = $con->prepare(getMyIdQuery());
+    $query->bind_param('i', $id);
+    $query->execute();
+    $result = $query->get_result();
+
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+
+    echo json_encode($data);
+
+    $query->close();
+    $con->close();
+}
+
 function bookedAppointment()
 {
     global $con;
@@ -48,6 +69,29 @@ function bookedAppointment()
     while ($row = $result->fetch_assoc()) {
         $data[] = $row;
     }
+
+    echo json_encode($data);
+
+    $query->close();
+    $con->close();
+}
+
+function bookedAppointmentAll()
+{
+    global $con;
+    
+    $id = $_SESSION['user_id'];
+
+    $query = $con->prepare(bookedAppointmentAllQuery());
+    $query->bind_param('i', $id);
+    $query->execute();
+    $result = $query->get_result();
+    $data = array();
+
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+
     echo json_encode($data);
 
     $query->close();
@@ -124,9 +168,19 @@ function bookedAppointmentQuery()
     return "SELECT `apptid`, `patient_id`, `name`, `dateappt`, `timeappt`, `reason`, `councilor`, `status`, `type`, `created`, `updated` FROM `appointment` WHERE `status` != 5";
 }
 
+function bookedAppointmentAllQuery()
+{
+    return "SELECT `apptid`, `patient_id`, `name`, `dateappt`, `timeappt`, `reason`, `councilor`, `status`, `type`, `created`, `updated` FROM `appointment` WHERE `patient_id` = ?";
+}
+
 function cancelAppointmentQuery()
 {
     return "UPDATE `appointment` SET `status`= 5 WHERE `apptid` = ?";
+}
+
+function getMyIdQuery()
+{
+    return "SELECT user_id FROM user WHERE user_id = ?";
 }
 
 function councillorQuery()
