@@ -33,22 +33,25 @@ if (!isset($_SESSION['user_id'])) {
                 <i class="fas fa-hands-helping"></i>M.H COMPANION
             </div>
             <div class="list-group list-group-flush my-3">
-            <a href="councilorDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fab fa-hire-a-helper me-2"></i>Dashboard
-        </a>
-        <a href="counsilorPatient.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-users me-2"></i>Patient
-        </a>
-        <a href="councilorAppoint.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-table-list me-2"></i>Appointment
-        </a>
-        <a href="councilorChat.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-comments me-2"></i>Chat Consultation
-        </a>
-        <a href="councilorMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-book-open me-2"></i>Medical Info
-        </a>
 
+                <a href="councilorDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="	fab fa-hire-a-helper me-2"></i>Dashboard
+                </a>
+                <a href="counsilorPatient.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-users me-2"></i>Patient
+                </a>
+                <a href="todolist.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-table-list me-2"></i>To Do List
+                </a>
+                <a href="councilorAppoint.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-table-list me-2"></i>Appointment
+                </a>
+                <a href="../chat/chats.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-comments me-2"></i>Chat Consultation
+                </a>
+                <a href="councilorMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-book-open me-2"></i>Medical Info
+                </a>
 
             </div>
         </div>

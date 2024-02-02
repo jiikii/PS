@@ -79,7 +79,7 @@ function bookedAppointment()
 function bookedAppointmentAll()
 {
     global $con;
-    
+
     $id = $_SESSION['user_id'];
 
     $query = $con->prepare(bookedAppointmentAllQuery());
@@ -132,6 +132,48 @@ function mentalInfo()
 
     echo json_encode($data);
 
+    $query->close();
+    $con->close();
+}
+
+function getPatientToDo()
+{
+    global $con;
+
+    $id = $_SESSION['user_id'];
+
+    $query = $con->prepare('SELECT u_councilor.username as ucouncilor, u_patient.username as upatient, t.description, t.status, t.created_at, t.updated_at, t.todo_id FROM `todos` as t INNER JOIN `user` as u_councilor ON t.councilor_id = u_councilor.user_id INNER JOIN `user` as u_patient ON t.patient_id = u_patient.user_id WHERE u_patient.user_id = ?');
+    $query->bind_param('i', $id);
+    $query->execute();
+    $result = $query->get_result();
+    $data = array();
+
+    while ($row = $result->fetch_array()) {
+        $data[] = $row;
+    }
+
+    echo json_encode($data);
+}
+
+
+function donetodocheck()
+{
+    global $con;
+
+    $id = $_POST['id'];
+
+    $query = $con->prepare('UPDATE `todos` SET `status`= 1 WHERE `todo_id` = ?');
+    $query->bind_param('i', $id);
+    $query->execute();
+
+    $result = $query->get_result();
+
+    if (!$result) {
+        echo 200;
+    } else {
+        echo $result;
+    }
+    
     $query->close();
     $con->close();
 }

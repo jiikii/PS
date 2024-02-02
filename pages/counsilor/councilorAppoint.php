@@ -33,11 +33,14 @@ if (!isset($_SESSION['user_id'])) {
             </div>
             <div class="list-group list-group-flush my-3">
 
-                <a href="councilorDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fab fa-hire-a-helper me-2"></i>Dashboard
+                <a href="councilorDashboard.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
+                    <i class="	fab fa-hire-a-helper me-2"></i>Dashboard
                 </a>
                 <a href="counsilorPatient.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-users me-2"></i>Patient
+                </a>
+                <a href="todolist.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-table-list me-2"></i>To Do List
                 </a>
                 <a href="councilorAppoint.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-table-list me-2"></i>Appointment
@@ -48,11 +51,12 @@ if (!isset($_SESSION['user_id'])) {
                 <a href="councilorMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-book-open me-2"></i>Medical Info
                 </a>
+                <a href="history.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-book-open me-2"></i>History
+                </a>
 
             </div>
         </div>
-
-        <!-- sidebar ends -->
 
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
@@ -76,7 +80,6 @@ if (!isset($_SESSION['user_id'])) {
                     </ul>
                 </div>
             </nav>
-
 
             <div class="mt-5 mx-5"></div>
             <main class="content" id="appointmentCoun">

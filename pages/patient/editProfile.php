@@ -25,9 +25,7 @@ if (!isset($_SESSION['user_id'])) {
 <body>
 
     <div class="d-flex" id="wrapper">
-
-        <!-- sidebar starts -->
-
+        
         <div class="background" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 secondary-text fs-4 fw-bold text-uppercase border-bottom">
                 <i class="fas fa-hands-helping"></i>M.H COMPANION
@@ -42,6 +40,9 @@ if (!isset($_SESSION['user_id'])) {
                 <a href="patientRecord.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-bookmark me-2"></i>Appointment Record
                 </a>
+                <a href="todolist.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-info-circle me-2"></i>To Do List
+                </a>
                 <a href="patientCinfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-info-circle me-2"></i>Councilor's Info
                 </a>
@@ -53,9 +54,7 @@ if (!isset($_SESSION['user_id'])) {
                 </a>
             </div>
         </div>
-
-        <!-- sidebar ends -->
-
+        
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">

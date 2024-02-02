@@ -27,8 +27,6 @@ if (!isset($_SESSION['user_id'])) {
 
     <div class="d-flex" id="wrapper">
 
-        <!-- sidebar starts -->
-
         <div class="background" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 secondary-text fs-4 fw-bold text-uppercase border-bottom">
                 <i class="fas fa-hands-helping"></i>M.H COMPANION
@@ -41,6 +39,9 @@ if (!isset($_SESSION['user_id'])) {
                 <a href="counsilorPatient.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-users me-2"></i>Patient
                 </a>
+                <a href="todolist.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-table-list me-2"></i>To Do List
+                </a>
                 <a href="councilorAppoint.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-table-list me-2"></i>Appointment
                 </a>
@@ -49,6 +50,9 @@ if (!isset($_SESSION['user_id'])) {
                 </a>
                 <a href="councilorMedicalInfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-book-open me-2"></i>Medical Info
+                </a>
+                <a href="history.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-book-open me-2"></i>History 
                 </a>
 
             </div>

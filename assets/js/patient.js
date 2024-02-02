@@ -6,6 +6,7 @@ createApp({
             bookedAppointments: [],
             SelectedBookedAppointments: [],
             councilors: [],
+            todos: [],
             mentalInfos: [],
             selectedCouncilors: [],
             date: '',
@@ -177,7 +178,7 @@ createApp({
             var data = new FormData();
             data.append('method', 'bookedAppointment');
             axios.post('../../includes/patients.php', data).then(function (r) {
-                
+
                 var eventsData = r.data.map(function (event) {
                     if (event.patient_id == vue.myId && event.councilor === event.councilor) {
                         return {
@@ -250,7 +251,43 @@ createApp({
             let formattedTime = `${hours}:${minutes} ${amPm}`;
 
             return formattedTime;
-        }
+        },
+        getPatientToDo: function () {
+            var data = new FormData();
+            const vue = this;
+
+            data.append('method', 'getPatientToDo');
+            axios.post('../../includes/patients.php', data)
+                .then(function (r) {
+                    vue.todos = [];
+                    for (var v of r.data) {
+                        vue.todos.push({
+                            ucouncilor: v.ucouncilor,
+                            upatient: v.upatient,
+                            description: v.description,
+                            status: v.status,
+                            created_at: v.created_at,
+                            updated_at: v.updated_at,
+                            todo_id: v.todo_id,
+                        })
+                    }
+                })
+        },
+        donetodocheck: function (id) {
+            var data = new FormData();
+            const vue = this;
+
+            data.append('method', 'donetodocheck');
+            data.append('id', id);
+            axios.post('../../includes/patients.php', data)
+                .then(function (r) {
+                    if(r.data == 200){
+                        vue.getPatientToDo();
+                    }else{
+                        alert('Something is wrong!')
+                    }
+                })
+        },
     },
     created() {
         this.bookedAppointment();
@@ -258,6 +295,7 @@ createApp({
         this.getCouncillor();
         this.getMyId();
         this.getCalendar();
+        this.getPatientToDo();
     },
     computed: {
         searchMentalInfo() {
