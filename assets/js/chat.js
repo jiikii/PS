@@ -63,7 +63,7 @@ createApp({
                     vue.allMessage = [];
 
                     for (var v of r.data) {
-                        vue.fullname = v.rel +', '+ v.ref;
+                        // vue.fullname = v.rel +', '+ v.ref;
                         if(v.sender){
                             vue.allMessage.push({
                                 message: v.message,

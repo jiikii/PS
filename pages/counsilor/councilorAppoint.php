@@ -87,7 +87,7 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="container bg-light">
                         <div class="row">
                             <div class="col-md-12 border p-5">
-                                <h4 class="mb-4">List of Appointment</h4>
+                                <h4 class="mb-4">List of Appointment<?php echo $_SESSION['user_name'];?></h4>
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -104,8 +104,8 @@ if (!isset($_SESSION['user_id'])) {
                                     <tbody>
                                         <tr v-for="(ap, index) of appointments">
                                             <th class="fw-bold">{{1+index++}}</th>
-                                            <td>{{ap.lastname}}, {{ap.firstname}}</td>
                                             <td>{{ap.name}}</td>
+                                            <td>{{ap.councilor}}</td>
                                             <td>{{ap.dateappt}} : {{ap.timeappt}}</td>
                                             <td>{{ap.reason}}</td>
                                             <td>{{ap.type == 1 ? 'F2F' : 'Online Meet'}}</td>

@@ -180,16 +180,17 @@ createApp({
             axios.post('../../includes/patients.php', data).then(function (r) {
 
                 var eventsData = r.data.map(function (event) {
-                    if (event.patient_id == vue.myId && event.councilor === event.councilor) {
+                    
+                    if (event.patient_id === vue.myId && event.councilor === event.councilor) {
                         return {
-                            title: event.name,
+                            title: event.name + '(C: '+ event.councilor +')',
                             start: event.dateappt + 'T' + event.timeappt,
                             color: 'blue'
                         };
                     } else {
                         return {
-                            title: event.name,
-                            start: event.dateappt + 'T' + event.timeappt,
+                            title: 'Booked ' + '(C: '+ event.councilor +')',
+                            start: event.dateappt,
                             color: 'red'
                         };
                     }

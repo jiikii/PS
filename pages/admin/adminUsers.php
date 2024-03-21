@@ -95,8 +95,20 @@ if (!isset($_SESSION['user_id'])) {
                             <form @submit="saveUser" class="userform">
                               <h3 class="text-center">Add Councilor</h3>
                               <div class="col mb-2">
+                                <label>Firstname</label>
+                                <input type="text" class="form-control" name="fname" placeholder="firstname">
+                              </div>
+                              <div class="col mb-2">
+                                <label>Lastname</label>
+                                <input type="text" class="form-control" name="lname" placeholder="Lastname">
+                              </div>
+                              <div class="col mb-2">
                                 <label>Username</label>
                                 <input type="text" class="form-control" name="username" placeholder="Username">
+                              </div>
+                              <div class="col mb-2">
+                                <label>Phone Number</label>
+                                <input type="text" class="form-control" name="ph" placeholder="Phone number">
                               </div>
                               <div class="col mb-2">
                                 <label>Email</label>

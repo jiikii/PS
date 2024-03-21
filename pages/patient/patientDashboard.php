@@ -67,7 +67,7 @@ if (!isset($_SESSION['user_id'])) {
 
             <!-- sidebar ends -->
 
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper">>
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
@@ -83,8 +83,6 @@ if (!isset($_SESSION['user_id'])) {
                                 <i class="fas fa-user me-2"></i>Patient
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="patientProfile.php" class="dropdown-item">profile</a></li>
-                                <li><a href="#" class="dropdown-item">settings</a></li>
                                 <li><a href="../../index.php" class="dropdown-item">logout</a></li>
                             </ul>
                         </li>

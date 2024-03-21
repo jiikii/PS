@@ -92,10 +92,10 @@ if (!isset($_SESSION['user_id'])) {
                                     <div class="member-card pt-2 pb-2">
                                         <div class="thumb-lg member-thumb mx-auto"><img :src="'/ps/imgs/'+ c.profile" class="rounded-circle img-thumbnail" alt="profile-image"></div>
                                         <div class="">
-                                            <h4 class="text-capitalize">{{c.firstname}}, {{c.lastname}}</h4>
-                                            <h4 class="text-capitalize">{{c.email}}</h4>
+                                            <h4 class="text-capitalize"><b>Name:</b> {{c.username}}</h4>
+                                            <h4 class="text-capitalize"><b>Gmail:</b> {{c.email}}</h4>
                                             <p class="text-muted">
-                                                Councilor
+                                                Counselor
                                             </p>
                                         </div>
                                         <div class="text-center"><a class="btn btn-primary col-7" href="../patient/patientAppointment.php" data-bs-toggle="modal" data-bs-target="#setAppoint" @click="getUsername(c.username)">Set Appoint</a></div>

@@ -92,8 +92,8 @@ if (!isset($_SESSION['user_id'])) {
                                     <div class="member-card pt-2 pb-2">
                                         <div class="thumb-lg member-thumb mx-auto"><img :src="'/ps/imgs/'+ c.profile" class="rounded-circle img-thumbnail" alt="profile-image"></div>
                                         <div class="">
-                                            <h4 class="text-capitalize">{{c.firstname}}, {{c.lastname}}</h4>
-                                            <h4 class="text-capitalize">{{c.email}}</h4>
+                                            <h4 class="text-capitalize"><b>Name:</b> {{c.firstname}} {{c.lastname}}</h4>
+                                            <h4 class="text-capitalize"><b>Gmail:</b> {{c.email}}</h4>
                                             <p class="text-muted">
                                                 Councilor
                                             </p>
@@ -122,7 +122,7 @@ if (!isset($_SESSION['user_id'])) {
                                                 Username: {{s.username}}<br>
                                                 Email: {{s.email}}<br>
                                                 Phone Number: {{s.phoneNumber}}<br>
-                                                Location: {{s.location}}<br>
+                                                <!-- Location: {{s.location}}<br> -->
                                             </div>
                                         </div>
                                         <div class="modal-footer">

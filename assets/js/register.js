@@ -29,7 +29,8 @@ createApp({
                     alert('User already exists');
                 }
                 else{
-                    alert("Error saving user");
+                    // alert("Error saving user");
+                    alert(r.data);
                 }
             });
             

@@ -101,6 +101,28 @@ function descriptionGet()
 
 }
 
+function removeTodo()
+{
+    global $con;
+    $pid = $_POST['id'];
+
+    $query = $con->prepare('DELETE FROM `todos` WHERE `todo_id` = ?');
+    $query->bind_param('i', $pid);
+
+    $query->execute();
+    $result = $query->get_result();
+
+    if(!$result){
+        echo 1;
+    }else{
+        echo 2;
+    }
+    
+    $query->close();
+    $con->close();
+
+}
+
 function history()
 {
     global $con;

@@ -22,6 +22,18 @@
                         <form @submit="saveUser" class="userform">
                             <h3 class="text-center">REGISTER</h3>
                             <div class="col mb-2">
+                                <!-- Default Value  -->
+                                <input type="text" class="form-control visually-hidden" value="0" name="fname" placeholder="Username">
+                            </div>
+                            <div class="col mb-2">
+                                <!-- Default Value  -->
+                                <input type="text" class="form-control visually-hidden" value="0" name="lname" placeholder="Username">
+                            </div>
+                            <div class="col mb-2">
+                                <!-- Default Value  -->
+                                <input type="text" class="form-control visually-hidden" value="0" name="ph" placeholder="Username">
+                            </div>
+                            <div class="col mb-2">
                                 <label>Username</label>
                                 <input type="text" class="form-control" name="username" placeholder="Username">
                             </div>
@@ -34,7 +46,7 @@
                                 <input type="password" class="form-control" name="password" placeholder="Password">
                             </div>
                             <div class="col mb-2">
-                                <select name="role" class="form-control">
+                                <select name="role" class="form-control" readonly>
                                     <option value="2">User(as Patient)</option>
                                     <!-- <option value="3">Doctor(as Councilor)</option> -->
                                 </select>

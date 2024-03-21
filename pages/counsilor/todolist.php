@@ -74,8 +74,6 @@ if (!isset($_SESSION['user_id'])) {
                                 <i class="fas fa-user me-2"></i>Councilor
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="councilorProfile.php" class="dropdown-item">profile</a></li>
-                                <li><a href="#" class="dropdown-item">settings</a></li>
                                 <li><a href="../../index.php" class="dropdown-item">logout</a></li>
                             </ul>
                         </li>
@@ -96,6 +94,7 @@ if (!isset($_SESSION['user_id'])) {
                                             <th class="fw-bold" width="15%">Patient's Name</th>
                                             <th class="fw-bold" width="60%">Description</th>
                                             <th class="fw-bold" width="15%">Status</th>
+                                            <th class="fw-bold" width="15%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -108,6 +107,9 @@ if (!isset($_SESSION['user_id'])) {
                                             <td class="text-capitalize">{{ t.upatient }}</td>
                                             <td class="text-capitalize">{{ t.description }}</td>
                                             <td :class="t.status == 0 ? 'text-danger' : 'text-primary'">{{ t.status == 0 ? 'Pending' : 'Done' }}</td>
+                                            <td>
+                                                <button type="button" @click="removeTodo(t.todo_id)" class="btn btn-primary">Remove</button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

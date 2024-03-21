@@ -43,6 +43,9 @@ if (!isset($_SESSION['user_id'])) {
                     <a href="patientRecord.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fas fa-bookmark me-2"></i>Appointment Record
                     </a>
+                    <a href="todolist.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                        <i class="fas fa-info-circle me-2"></i>To Do List
+                    </a>
                     <a href="patientCinfo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fas fa-info-circle me-2"></i>Councilor's Info
                     </a>

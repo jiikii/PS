@@ -80,15 +80,15 @@ if (!isset($_SESSION['user_id'])) {
                             <div class="row">
                                 <div class="col-md-12 p-5">
                                     <div class="col-5">
-                                        <input type="search" v-model="searchAppointment" class="form-control form-control-md my-3" placeholder="Search Councilor Name"> 
+                                        <input type="search" v-model="searchAppointment" class="form-control form-control-md my-3" placeholder="Search"> 
                                     </div>
                                     <h4 class="mb-4">List of Appointment</h4>
                                     <table class="table">
                                         <thead>
                                             <tr>
                                                 <th class="fw-bold">Reference ID</th>
-                                                <th class="fw-bold">Patient Name</th>
-                                                <th class="fw-bold">Councilor Name</th>
+                                                <!-- <th class="fw-bold">Patient Name</th> -->
+                                                <!-- <th class="fw-bold">Councilor Name</th> -->
                                                 <th class="fw-bold">Appointment Schedule</th>
                                                 <th class="fw-bold">Reason</th>
                                                 <th class="fw-bold">Type</th>
@@ -98,12 +98,12 @@ if (!isset($_SESSION['user_id'])) {
                                         <tbody>
                                             <tr v-for="(ap, index) of searchAppointments">
                                                 <th class="fw-bold">{{1+index++}}</th>
-                                                <td>{{ap.lastname}}, {{ap.firstname}}</td>
-                                                <td>{{ap.name}}</td>
+                                                <!-- <td>{{ap.lastname}}, {{ap.firstname}}</td>
+                                                <td>{{ap.name}}</td> -->
                                                 <td>{{ap.dateappt}} : {{ap.timeappt}}</td>
                                                 <td>{{ap.reason}}</td>
                                                 <td>{{ap.type == 1 ? 'F2F' : 'Online Meet'}}</td>
-                                                <td>{{ap.status == 2 ? 'Booked':'Pending'}}</td>
+                                                <td>{{ap.status == 2 ? 'Booked': ap.status == 10 ? 'Deleted' : 'Pending'}}</td>
                                             </tr>
                                         </tbody>
                                     </table>

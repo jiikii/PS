@@ -12,13 +12,16 @@
     function saveUser(){
         global $con;
 
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
         $username = $_POST['username'];
+        $ph = $_POST['ph'];
         $email = $_POST['email'];
         $password = md5($_POST['password']);
         $role = $_POST['role'];
         
-        $query = $con->prepare("INSERT INTO user (`username`, `email`, `password`, `role`) VALUES (?,?,?,?)");
-        $query->bind_param('ssss',$username,$email,$password,$role);
+        $query = $con->prepare("INSERT INTO user (`firstname`,`lastname`,`username`,`phoneNumber`, `email`, `password`, `role`) VALUES (?,?,?,?,?,?,?)");
+        $query->bind_param('sssssss',$fname, $lname, $username,$ph,$email,$password,$role);
 
         $query->execute();
 

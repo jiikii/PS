@@ -12,7 +12,7 @@ createApp({
         }
     },
     methods: {
-        getPiD(id){
+        getPiD(id) {
             this.pid = id;
         },
         descriptionGet: function () {
@@ -24,9 +24,10 @@ createApp({
             data.append('pid', vue.pid);
             axios.post('../../includes/adminAppointment.php', data)
                 .then(function (r) {
-                    if(r.data == 200){
+                    if (r.data == 200) {
                         alert('Successfully send TODOS!');
-                    }else{
+                        window.location.reload();
+                    } else {
                         alert('Something is wrong!. Please contact administrator!');
                     }
                 })
@@ -45,6 +46,7 @@ createApp({
                             firstname: v.firstname,
                             lastname: v.lastname,
                             name: v.name,
+                            councilor: v.councilor,
                             dateappt: v.dateappt,
                             reason: v.reason,
                             timeappt: v.timeappt,
@@ -94,6 +96,7 @@ createApp({
                                 lastname: v.lastname,
                                 patient_id: v.patient_id,
                                 name: v.name,
+                                councilor: v.councilor,
                                 dateappt: v.dateappt,
                                 timeappt: v.timeappt,
                                 reason: v.reason,
@@ -126,12 +129,12 @@ createApp({
             axios.post('../../includes/adminAppointment.php', data)
                 .then(function (r) {
                     if (r.data == 1) {
+                        alert('Approved!');
                         window.location.reload();
                     }
                 })
         },
         decline(id) {
-            alert(id);
             var data = new FormData();
             const vue = this;
 
@@ -157,6 +160,21 @@ createApp({
                     }
                 })
         },
+        removeTodo(id) {
+            if (confirm(`Are you sure want to delete this todo's`)) {
+                var data = new FormData();
+                const vue = this;
+
+                data.append('method', 'removeTodo');
+                data.append('id', id);
+                axios.post('../../includes/adminAppointment.php', data)
+                    .then(function (r) {
+                        if (r.data == 1) {
+                            window.location.reload();
+                        }
+                    })
+            }
+        }
     },
     created: function () {
         this.getAppointments();
